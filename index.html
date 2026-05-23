@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="A visual chronology of 65 major data-system breakthroughs from the 1960s through 2026, covering databases, distributed systems, cloud warehouses, streaming, and AI-native data infrastructure." />
+<meta property="og:title" content="Data Systems Development Timeline, 1960s–2026" />
+<meta property="og:description" content="65 major data-system breakthroughs from the 1960s through 2026." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Data Systems Development Timeline, 1960s–2026" />
+<meta name="twitter:description" content="65 major data-system breakthroughs from the 1960s through 2026." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" />
 <title>Data Systems Development Timeline, 1960s–2026</title>
 <style>
 :root {
@@ -186,16 +197,20 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
     .subtitle, .meta, .footer, .side-panel p { color:#333; }
     a { color:#0645ad; }
 }
+.skip-nav { position: absolute; left: -9999px; top: 0; z-index: 999; background: var(--accent); color: var(--bg); padding: 8px 16px; border-radius: 0 0 8px 0; font-weight: 600; text-decoration: none; }
+.skip-nav:focus { left: 0; }
+.btn:focus-visible, .chip:focus-visible, .ddia-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-nav">Skip to content</a>
 <header class="hero">
     <div class="wrapper">
         <div class="kicker">Data systems timeline · selected milestones</div>
         <h1>From centralized DBMSs to AI-native data systems</h1>
         <p class="subtitle">A visual chronology of major data-system breakthroughs from the 1960s–1970s through 2026, emphasizing key people, papers, software systems, companies, and the concrete problems each breakthrough solved.</p>
         <div class="stats" aria-label="Timeline statistics">
-            <div class="stat"><strong>59</strong><span>milestones</span></div>
+            <div class="stat"><strong>65</strong><span>milestones</span></div>
             <div class="stat"><strong>5</strong><span>historical eras</span></div>
             <div class="stat"><strong>20</strong><span>technical categories</span></div>
             <div class="stat"><strong>1960–2026</strong><span>coverage window</span></div>
@@ -228,7 +243,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
     </div>
 </div>
 
-<main class="wrapper layout">
+<main id="main-content" class="wrapper layout">
     <aside>
         <div class="side-panel">
             <h2>How to read the timeline</h2>
@@ -241,18 +256,18 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
                 <div class="phase"><b>2020–2026</b><span>Lakehouse reliability, vector retrieval, AI/agent data access</span></div>
             </div>
             <h2 style="margin-top:20px;">Category density</h2>
-            <ul class="cat-list"><li><span>AI / Vector retrieval</span><strong>8</strong></li><li><span>Cloud data systems</span><strong>5</strong></li><li><span>Query processing</span><strong>5</strong></li><li><span>Big data processing</span><strong>4</strong></li><li><span>Data warehouse / OLAP</span><strong>4</strong></li><li><span>Distributed systems</span><strong>4</strong></li><li><span>Commercialization</span><strong>3</strong></li><li><span>Distributed SQL</span><strong>3</strong></li><li><span>Distributed storage</span><strong>3</strong></li><li><span>Operational DBMS</span><strong>3</strong></li><li><span>Streaming</span><strong>3</strong></li><li><span>Data engineering</span><strong>2</strong></li><li><span>Data model</span><strong>2</strong></li><li><span>Storage engine</span><strong>2</strong></li><li><span>Transactions</span><strong>2</strong></li><li><span>Web-scale systems</span><strong>2</strong></li><li><span>Data formats</span><strong>1</strong></li><li><span>Extensible DBMS</span><strong>1</strong></li><li><span>Lakehouse</span><strong>1</strong></li><li><span>Parallel DBMS</span><strong>1</strong></li></ul>
+            <ul class="cat-list"><li><span>AI / Vector retrieval</span><strong>8</strong></li><li><span>Query processing</span><strong>6</strong></li><li><span>Big data processing</span><strong>5</strong></li><li><span>Cloud data systems</span><strong>5</strong></li><li><span>Distributed systems</span><strong>5</strong></li><li><span>Data warehouse / OLAP</span><strong>4</strong></li><li><span>Distributed SQL</span><strong>4</strong></li><li><span>Operational DBMS</span><strong>4</strong></li><li><span>Commercialization</span><strong>3</strong></li><li><span>Data engineering</span><strong>3</strong></li><li><span>Distributed storage</span><strong>3</strong></li><li><span>Streaming</span><strong>3</strong></li><li><span>Data model</span><strong>2</strong></li><li><span>Storage engine</span><strong>2</strong></li><li><span>Transactions</span><strong>2</strong></li><li><span>Web-scale systems</span><strong>2</strong></li><li><span>Data formats</span><strong>1</strong></li><li><span>Extensible DBMS</span><strong>1</strong></li><li><span>Lakehouse</span><strong>1</strong></li><li><span>Parallel DBMS</span><strong>1</strong></li></ul>
         </div>
     </aside>
     <section>
-        <div id="count" style="color:var(--muted); margin: 0 0 16px;"></div>
+        <div id="count" style="color:var(--muted); margin: 0 0 16px;" aria-live="polite"></div>
         <div id="noResults" class="no-results">No milestones match the current filters.</div>
         <section class="era-section" id="1960s-1970s" data-era-section="1960s–1970s"><div class="era-heading"><span>1960s–1970s</span><strong>8 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="1960s–1970s" data-category="Operational DBMS" data-search="1960–1964 sabre airline reservation system software / operational system operational dbms ibm + american airlines; c. r. smith and r. blair smith are central to the origin story airline reservations were slow, manual, and fragmented across offices and agents; inventory could not be updated reliably in real time. sabre centralized reservation inventory and made real-time operational data processing possible at business scale. a landmark oltp-style system that demonstrated large businesses could depend on centralized, always-current data infrastructure.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1960–1964</div>
+                    <time class="year" datetime="1960">1960–1964</time>
                     <h3>SABRE airline reservation system</h3>
                 </div>
                 <span class="badge">Operational DBMS</span>
@@ -269,7 +284,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1961–1964</div>
+                    <time class="year" datetime="1961">1961–1964</time>
                     <h3>Integrated Data Store (IDS)</h3>
                 </div>
                 <span class="badge">Operational DBMS</span>
@@ -286,7 +301,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1966–1968</div>
+                    <time class="year" datetime="1966">1966–1968</time>
                     <h3>IBM Information Management System (IMS)</h3>
                 </div>
                 <span class="badge">Operational DBMS</span>
@@ -303,7 +318,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1965–1971</div>
+                    <time class="year" datetime="1965">1965–1971</time>
                     <h3>CODASYL DBTG network database model</h3>
                 </div>
                 <span class="badge">Data model</span>
@@ -320,7 +335,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1970</div>
+                    <time class="year" datetime="1970">1970</time>
                     <h3>Relational model</h3>
                 </div>
                 <span class="badge">Data model</span>
@@ -337,7 +352,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1972–1976</div>
+                    <time class="year" datetime="1972">1972–1976</time>
                     <h3>INGRES research system</h3>
                 </div>
                 <span class="badge">Query processing</span>
@@ -354,7 +369,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1974–1979</div>
+                    <time class="year" datetime="1974">1974–1979</time>
                     <h3>IBM System R, SEQUEL/SQL, and cost-based optimization</h3>
                 </div>
                 <span class="badge">Query processing</span>
@@ -371,7 +386,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1979</div>
+                    <time class="year" datetime="1979">1979</time>
                     <h3>Oracle Version 2</h3>
                 </div>
                 <span class="badge">Commercialization</span>
@@ -388,7 +403,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">Late 1970s–1980s</div>
+                    <time class="year" datetime="1970">Late 1970s–1980s</time>
                     <h3>Transaction processing theory and ACID systems</h3>
                 </div>
                 <span class="badge">Transactions</span>
@@ -405,7 +420,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1983</div>
+                    <time class="year" datetime="1983">1983</time>
                     <h3>IBM Db2</h3>
                 </div>
                 <span class="badge">Commercialization</span>
@@ -422,7 +437,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1984</div>
+                    <time class="year" datetime="1984">1984</time>
                     <h3>Teradata DBC/1012</h3>
                 </div>
                 <span class="badge">Data warehouse / OLAP</span>
@@ -439,7 +454,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1986</div>
+                    <time class="year" datetime="1986">1986</time>
                     <h3>ANSI SQL standard</h3>
                 </div>
                 <span class="badge">Query processing</span>
@@ -456,7 +471,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1986 onward</div>
+                    <time class="year" datetime="1986">1986 onward</time>
                     <h3>POSTGRES</h3>
                 </div>
                 <span class="badge">Extensible DBMS</span>
@@ -473,7 +488,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1986–1990s</div>
+                    <time class="year" datetime="1986">1986–1990s</time>
                     <h3>Gamma and shared-nothing parallel DB research</h3>
                 </div>
                 <span class="badge">Parallel DBMS</span>
@@ -490,7 +505,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1992</div>
+                    <time class="year" datetime="1992">1992</time>
                     <h3>ARIES recovery algorithm</h3>
                 </div>
                 <span class="badge">Transactions</span>
@@ -507,7 +522,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">Early–mid 1990s</div>
+                    <time class="year" datetime="1990">Early–mid 1990s</time>
                     <h3>Data warehouse architecture and dimensional modeling</h3>
                 </div>
                 <span class="badge">Data warehouse / OLAP</span>
@@ -524,7 +539,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1995–1996</div>
+                    <time class="year" datetime="1995">1995–1996</time>
                     <h3>MySQL and PostgreSQL open-source relational systems</h3>
                 </div>
                 <span class="badge">Commercialization</span>
@@ -533,7 +548,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="problem"><strong>Problem solved:</strong> Developers and web companies needed affordable, accessible SQL databases without expensive enterprise licensing.</div>
             <div class="solution"><strong>How it solved it:</strong> Open-source relational systems made production SQL databases widely available to websites, startups, and later cloud services.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became foundational to the web era and modern open-source database ecosystem.</div>
-            <div class="refs"><strong>References:</strong> <a href="https://blogs.oracle.com/mysql/mysql-retrospective-the-early-years" target="_blank" rel="noopener noreferrer">MySQL retrospective</a><a href="https://www.postgresql.org/docs/current/history.html" target="_blank" rel="noopener noreferrer">PostgreSQL history</a></div>
+            <div class="refs"><strong>References:</strong> <a href="https://blogs.oracle.com/mysql/mysql-retrospective-the-early-years" target="_blank" rel="noopener noreferrer">MySQL retrospective</a> <a href="https://www.postgresql.org/docs/current/history.html" target="_blank" rel="noopener noreferrer">PostgreSQL history</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Both systems implement the relational model with different design philosophies and extension points.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="Their contrasting storage engines (InnoDB B-tree vs. PostgreSQL heap) illustrate key storage design trade-offs.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
@@ -541,7 +556,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1995–1997</div>
+                    <time class="year" datetime="1995">1995–1997</time>
                     <h3>Data Cube and OLAP relational aggregation</h3>
                 </div>
                 <span class="badge">Data warehouse / OLAP</span>
@@ -558,7 +573,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1996</div>
+                    <time class="year" datetime="1996">1996</time>
                     <h3>Log-Structured Merge Tree (LSM-tree)</h3>
                 </div>
                 <span class="badge">Storage engine</span>
@@ -571,28 +586,45 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="The LSM-tree is a core storage structure contrasted with B-trees, optimized for write-heavy workloads.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
-        <article class="milestone" data-era="1980s–1990s" data-category="Distributed systems" data-search="1998–2001 paxos made accessible paper / consensus algorithm distributed systems leslie lamport replicated distributed systems needed machines to agree on state despite failures and message delays. paxos formalized fault-tolerant distributed consensus for replicated logs and state machines. became a foundation for metadata services, distributed databases, and coordination systems.">
+        <article class="milestone" data-era="1980s–1990s" data-category="Distributed systems" data-search="1989–2001 paxos consensus algorithm paper / consensus algorithm distributed systems leslie lamport replicated distributed systems needed machines to agree on state despite failures and message delays. paxos formalized fault-tolerant distributed consensus for replicated logs and state machines. became a foundation for metadata services, distributed databases, and coordination systems. the part-time parliament paxos made simple">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">1998–2001</div>
-                    <h3>Paxos made accessible</h3>
+                    <time class="year" datetime="1989">1989–2001</time>
+                    <h3>Paxos consensus algorithm</h3>
                 </div>
                 <span class="badge">Distributed systems</span>
             </div>
-            <div class="meta"><span>paper / consensus algorithm</span><span>Leslie Lamport</span></div>
+            <div class="meta"><span>paper / consensus algorithm</span><span>Leslie Lamport (original paper written 1989, published 1998; "Paxos Made Simple" 2001)</span></div>
             <div class="problem"><strong>Problem solved:</strong> Replicated distributed systems needed machines to agree on state despite failures and message delays.</div>
             <div class="solution"><strong>How it solved it:</strong> Paxos formalized fault-tolerant distributed consensus for replicated logs and state machines.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a foundation for metadata services, distributed databases, and coordination systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" target="_blank" rel="noopener noreferrer">Paxos Made Simple PDF</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Paxos is the canonical consensus algorithm whose properties, limitations, and variants are analyzed in depth.">Ch. 10: Consistency & Consensus</span></div>
         </article>
-        </div></section><section class="era-section" id="2000s" data-era-section="2000s"><div class="era-heading"><span>2000s</span><strong>12 milestones</strong></div><div class="timeline">
+        </div></section><section class="era-section" id="2000s" data-era-section="2000s"><div class="era-heading"><span>2000s</span><strong>14 milestones</strong></div><div class="timeline">
+        <article class="milestone" data-era="2000s" data-category="Operational DBMS" data-search="2000 sqlite software / embedded dbms operational dbms d. richard hipp applications needed a self-contained, serverless sql database that required zero configuration and zero administration. sqlite provided an embedded sql database engine stored in a single cross-platform file, requiring no separate server process. became the most widely deployed database engine in the world, embedded in billions of devices, browsers, and applications.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2000">2000</time>
+                    <h3>SQLite</h3>
+                </div>
+                <span class="badge">Operational DBMS</span>
+            </div>
+            <div class="meta"><span>software / embedded DBMS</span><span>D. Richard Hipp</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Applications needed a self-contained, serverless SQL database that required zero configuration and zero administration.</div>
+            <div class="solution"><strong>How it solved it:</strong> SQLite provided an embedded SQL database engine stored in a single cross-platform file, requiring no separate server process.</div>
+            <div class="impact"><strong>Why it mattered:</strong> Became the most widely deployed database engine in the world, embedded in billions of devices, browsers, and applications.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://www.sqlite.org/about.html" target="_blank" rel="noopener noreferrer">SQLite: About</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="SQLite's embedded architecture illustrates the trade-off between client-server and in-process data systems.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="SQLite uses a B-tree storage engine with WAL journaling, a classic storage and retrieval approach.">Ch. 4: Storage & Retrieval</span></div>
+        </article>
+
         <article class="milestone" data-era="2000s" data-category="Distributed systems" data-search="2000–2002 cap theorem / brewer’s conjecture formalized theory / paper distributed systems eric brewer; seth gilbert and nancy lynch distributed-system designers needed a clear framework for the trade-offs caused by network partitions. cap clarified that under partition, systems must trade off consistency and availability. strongly shaped nosql and distributed database design debates in the 2000s and 2010s.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2000–2002</div>
+                    <time class="year" datetime="2000">2000–2002</time>
                     <h3>CAP theorem / Brewer’s conjecture formalized</h3>
                 </div>
                 <span class="badge">Distributed systems</span>
@@ -609,7 +641,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2003–2004</div>
+                    <time class="year" datetime="2003">2003–2004</time>
                     <h3>Memcached</h3>
                 </div>
                 <span class="badge">Web-scale systems</span>
@@ -626,7 +658,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2003</div>
+                    <time class="year" datetime="2003">2003</time>
                     <h3>Google File System (GFS)</h3>
                 </div>
                 <span class="badge">Distributed storage</span>
@@ -643,7 +675,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2004</div>
+                    <time class="year" datetime="2004">2004</time>
                     <h3>MapReduce</h3>
                 </div>
                 <span class="badge">Big data processing</span>
@@ -660,7 +692,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2005</div>
+                    <time class="year" datetime="2005">2005</time>
                     <h3>C-Store and Vertica-style column stores</h3>
                 </div>
                 <span class="badge">Data warehouse / OLAP</span>
@@ -677,7 +709,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2006</div>
+                    <time class="year" datetime="2006">2006</time>
                     <h3>Amazon S3</h3>
                 </div>
                 <span class="badge">Cloud data systems</span>
@@ -694,7 +726,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2006</div>
+                    <time class="year" datetime="2006">2006</time>
                     <h3>Bigtable</h3>
                 </div>
                 <span class="badge">Distributed storage</span>
@@ -711,7 +743,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2006 onward</div>
+                    <time class="year" datetime="2006">2006 onward</time>
                     <h3>Hadoop</h3>
                 </div>
                 <span class="badge">Big data processing</span>
@@ -728,7 +760,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2007</div>
+                    <time class="year" datetime="2007">2007</time>
                     <h3>Amazon Dynamo</h3>
                 </div>
                 <span class="badge">Distributed systems</span>
@@ -745,7 +777,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2008–2010</div>
+                    <time class="year" datetime="2008">2008–2010</time>
                     <h3>Cassandra and wide-column NoSQL</h3>
                 </div>
                 <span class="badge">Distributed storage</span>
@@ -757,12 +789,29 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="refs"><strong>References:</strong> <a href="https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf" target="_blank" rel="noopener noreferrer">Cassandra LADIS paper PDF</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Cassandra uses LSM-tree storage inherited from Bigtable’s design principles.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Cassandra’s leaderless replication follows the Dynamo model with tunable consistency levels.">Ch. 6: Replication</span><span class="ddia-chip" data-why="Cassandra partitions data using consistent hashing across a token ring topology.">Ch. 7: Sharding</span></div>
         </article>
-        
+
+        <article class="milestone" data-era="2000s" data-category="Distributed systems" data-search="2008–2010 apache zookeeper software / coordination service distributed systems yahoo research; patrick hunt, mahadev konar, flavio junqueira, benjamin reed distributed applications needed a reliable coordination service for configuration, naming, synchronization, and group membership. zookeeper provided a centralized coordination service with ordered, persistent znodes and watch notifications. became essential infrastructure for hadoop, kafka, hbase, and many distributed systems requiring coordination.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2008">2008–2010</time>
+                    <h3>Apache ZooKeeper</h3>
+                </div>
+                <span class="badge">Distributed systems</span>
+            </div>
+            <div class="meta"><span>software / coordination service</span><span>Yahoo Research; Patrick Hunt, Mahadev Konar, Flavio Junqueira, Benjamin Reed</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Distributed applications needed a reliable coordination service for configuration, naming, synchronization, and group membership.</div>
+            <div class="solution"><strong>How it solved it:</strong> ZooKeeper provided a centralized coordination service with ordered, persistent znodes and watch notifications.</div>
+            <div class="impact"><strong>Why it mattered:</strong> Became essential infrastructure for Hadoop, Kafka, HBase, and many distributed systems requiring coordination.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/conference/usenix-atc-10/zookeeper-wait-free-coordination-internet-scale-systems" target="_blank" rel="noopener noreferrer">ZooKeeper USENIX ATC paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="ZooKeeper is a key example of a coordination and consensus service used by distributed data systems.">Ch. 10: Consistency & Consensus</span></div>
+        </article>
+
         <article class="milestone" data-era="2000s" data-category="Big data processing" data-search="2009 hive software / sql-on-hadoop big data processing facebook data infrastructure team; apache community mapreduce was too low-level for analysts and bi users who wanted sql-like access to hadoop data. hive introduced a sql-like warehouse layer over hadoop datasets. helped sql become the common interface for big-data systems.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2009</div>
+                    <time class="year" datetime="2009">2009</time>
                     <h3>Hive</h3>
                 </div>
                 <span class="badge">Big data processing</span>
@@ -779,7 +828,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2009</div>
+                    <time class="year" datetime="2009">2009</time>
                     <h3>MongoDB and Redis</h3>
                 </div>
                 <span class="badge">Web-scale systems</span>
@@ -791,12 +840,12 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="refs"><strong>References:</strong> <a href="https://www.wired.com/2012/08/mongodb" target="_blank" rel="noopener noreferrer">Wired: MongoDB background</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="MongoDB’s document model is a primary example of non-relational data modeling discussed here.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="Their storage engines (WiredTiger B-tree, Redis in-memory) illustrate contrasting retrieval strategies.">Ch. 4: Storage & Retrieval</span></div>
         </article>
-        </div></section><section class="era-section" id="2010s" data-era-section="2010s"><div class="era-heading"><span>2010s</span><strong>15 milestones</strong></div><div class="timeline">
+        </div></section><section class="era-section" id="2010s" data-era-section="2010s"><div class="era-heading"><span>2010s</span><strong>19 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2010 dremel and bigquery lineage paper / cloud analytics cloud data systems google; sergey melnik and team hadoop-style batch analytics was too slow for interactive ad hoc queries over massive datasets. dremel used columnar layout and multi-level execution trees for interactive analysis of nested data. became a technical foundation for bigquery and interactive cloud analytics.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2010</div>
+                    <time class="year" datetime="2010">2010</time>
                     <h3>Dremel and BigQuery lineage</h3>
                 </div>
                 <span class="badge">Cloud data systems</span>
@@ -813,7 +862,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2010</div>
+                    <time class="year" datetime="2010">2010</time>
                     <h3>Apache Spark</h3>
                 </div>
                 <span class="badge">Big data processing</span>
@@ -825,12 +874,29 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/legacy/event/hotcloud10/tech/full_papers/Zaharia.pdf" target="_blank" rel="noopener noreferrer">Spark HotCloud paper PDF</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Spark’s in-memory dataflow engine superseded MapReduce as the modern standard for batch processing.">Ch. 11: Batch Processing</span></div>
         </article>
-        
+
+        <article class="milestone" data-era="2010s" data-category="Query processing" data-search="2010 elasticsearch software / distributed search engine query processing shay banon; elastic full-text search and log analytics required a scalable, distributed search engine with near-real-time indexing. elasticsearch provided distributed full-text search with inverted indexes, near-real-time indexing, and a rest api. became the dominant search and observability platform, powering application search, log analytics, and the elk stack.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2010">2010</time>
+                    <h3>Elasticsearch</h3>
+                </div>
+                <span class="badge">Query processing</span>
+            </div>
+            <div class="meta"><span>software / distributed search engine</span><span>Shay Banon; Elastic</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Full-text search and log analytics required a scalable, distributed search engine with near-real-time indexing.</div>
+            <div class="solution"><strong>How it solved it:</strong> Elasticsearch provided distributed full-text search with inverted indexes, near-real-time indexing, and a REST API.</div>
+            <div class="impact"><strong>Why it mattered:</strong> Became the dominant search and observability platform, powering application search, log analytics, and the ELK stack.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://www.elastic.co/about/history-of-elasticsearch" target="_blank" rel="noopener noreferrer">Elastic: History of Elasticsearch</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Elasticsearch uses inverted indexes for full-text search, a key retrieval technique alongside B-trees and LSM-trees.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Elasticsearch distributes search across shards using partitioning strategies for horizontal scalability.">Ch. 7: Sharding</span></div>
+        </article>
+
         <article class="milestone" data-era="2010s" data-category="Streaming" data-search="2011 apache kafka software / distributed log streaming linkedin; jay kreps, neha narkhede, jun rao companies needed reliable high-volume event ingestion and a way to decouple producers from consumers. kafka provided a durable distributed commit log with topics, partitions, replay, and consumer groups. became core infrastructure for streaming pipelines, event-driven systems, and real-time data platforms.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2011</div>
+                    <time class="year" datetime="2011">2011</time>
                     <h3>Apache Kafka</h3>
                 </div>
                 <span class="badge">Streaming</span>
@@ -847,7 +913,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2012</div>
+                    <time class="year" datetime="2012">2012</time>
                     <h3>Spanner</h3>
                 </div>
                 <span class="badge">Distributed SQL</span>
@@ -864,12 +930,12 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2012</div>
+                    <time class="year" datetime="2012">2012</time>
                     <h3>Calvin deterministic transactions</h3>
                 </div>
                 <span class="badge">Distributed SQL</span>
             </div>
-            <div class="meta"><span>paper / transaction architecture</span><span>Yale database research community</span></div>
+            <div class="meta"><span>paper / transaction architecture</span><span>Alexander Thomson, Daniel Abadi, Yale</span></div>
             <div class="problem"><strong>Problem solved:</strong> Distributed transactions incurred high coordination cost, especially under contention across partitions.</div>
             <div class="solution"><strong>How it solved it:</strong> Calvin used deterministic transaction ordering to reduce runtime coordination complexity.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced distributed SQL and deterministic transaction-processing architectures.</div>
@@ -881,7 +947,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2012–2013</div>
+                    <time class="year" datetime="2012">2012–2013</time>
                     <h3>Amazon Redshift and managed cloud data warehousing</h3>
                 </div>
                 <span class="badge">Cloud data systems</span>
@@ -898,7 +964,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2012–2013</div>
+                    <time class="year" datetime="2012">2012–2013</time>
                     <h3>Presto / Trino-style distributed SQL</h3>
                 </div>
                 <span class="badge">Query processing</span>
@@ -915,7 +981,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2012–2013</div>
+                    <time class="year" datetime="2012">2012–2013</time>
                     <h3>RocksDB</h3>
                 </div>
                 <span class="badge">Storage engine</span>
@@ -932,7 +998,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2014</div>
+                    <time class="year" datetime="2014">2014</time>
                     <h3>Raft consensus algorithm</h3>
                 </div>
                 <span class="badge">Distributed systems</span>
@@ -949,7 +1015,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2014–2015</div>
+                    <time class="year" datetime="2014">2014–2015</time>
                     <h3>Airflow and data orchestration as code</h3>
                 </div>
                 <span class="badge">Data engineering</span>
@@ -961,12 +1027,29 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="refs"><strong>References:</strong> <a href="https://nerds.airbnb.com/airflow/" target="_blank" rel="noopener noreferrer">Airbnb Engineering: Airflow</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Airflow manages the DAG-structured batch processing workflows described in this chapter.">Ch. 11: Batch Processing</span></div>
         </article>
-        
+
+        <article class="milestone" data-era="2010s" data-category="Distributed SQL" data-search="2014–2015 cockroachdb software / distributed sql database distributed sql spencer kimball, peter mattis, ben darnell; cockroach labs open-source alternatives to google spanner were needed for organizations that wanted globally distributed, serializable sql without proprietary infrastructure. cockroachdb implemented spanner-inspired distributed sql with serializable transactions, automatic sharding, and geo-replication on commodity hardware. made globally distributed, strongly consistent sql databases accessible outside of google.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2014">2014–2015</time>
+                    <h3>CockroachDB</h3>
+                </div>
+                <span class="badge">Distributed SQL</span>
+            </div>
+            <div class="meta"><span>software / distributed SQL database</span><span>Spencer Kimball, Peter Mattis, Ben Darnell; Cockroach Labs</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Open-source alternatives to Google Spanner were needed for organizations that wanted globally distributed, serializable SQL without proprietary infrastructure.</div>
+            <div class="solution"><strong>How it solved it:</strong> CockroachDB implemented Spanner-inspired distributed SQL with serializable transactions, automatic sharding, and geo-replication on commodity hardware.</div>
+            <div class="impact"><strong>Why it mattered:</strong> Made globally distributed, strongly consistent SQL databases accessible outside of Google.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://dl.acm.org/doi/10.1145/3318464.3386134" target="_blank" rel="noopener noreferrer">CockroachDB SIGMOD paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="CockroachDB uses Raft-based replication for fault tolerance across distributed ranges.">Ch. 6: Replication</span><span class="ddia-chip" data-why="CockroachDB provides serializable distributed transactions inspired by Spanner's approach.">Ch. 8: Transactions</span><span class="ddia-chip" data-why="CockroachDB relies on Raft consensus for each range's replication group.">Ch. 10: Consistency & Consensus</span></div>
+        </article>
+
         <article class="milestone" data-era="2010s" data-category="Streaming" data-search="2014–2016 flink, druid, pinot, and clickhouse software / streaming and real-time olap streaming apache flink community; metamarkets/druid; linkedin/pinot; yandex/clickhouse overnight batch systems could not support live dashboards, event-time stream computation, or user-facing analytical latency. flink addressed stateful stream processing; druid, pinot, and clickhouse attacked low-latency analytical queries over fresh event data. made real-time analytics and streaming data platforms mainstream.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2014–2016</div>
+                    <time class="year" datetime="2014">2014–2016</time>
                     <h3>Flink, Druid, Pinot, and ClickHouse</h3>
                 </div>
                 <span class="badge">Streaming</span>
@@ -983,7 +1066,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2014–2016</div>
+                    <time class="year" datetime="2014">2014–2016</time>
                     <h3>Snowflake cloud data warehouse</h3>
                 </div>
                 <span class="badge">Cloud data systems</span>
@@ -1000,7 +1083,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2013–2016</div>
+                    <time class="year" datetime="2013">2013–2016</time>
                     <h3>Parquet and Arrow</h3>
                 </div>
                 <span class="badge">Data formats</span>
@@ -1012,12 +1095,46 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="refs"><strong>References:</strong> <a href="https://parquet.apache.org/" target="_blank" rel="noopener noreferrer">Apache Parquet</a></div>
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Parquet’s columnar encoding is a primary example of efficient analytical storage formats.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Parquet and Arrow define schema evolution rules and cross-language data encoding standards.">Ch. 5: Encoding & Evolution</span></div>
         </article>
-        
+
+        <article class="milestone" data-era="2010s" data-category="Big data processing" data-search="2016 apache beam software / unified processing model big data processing google from dataflow model; tyler akidau, robert bradshaw, craig chambers, and collaborators; apache community developers had to choose between batch and stream processing frameworks, writing different code for each. beam provided a unified programming model for batch and stream processing with pluggable runners (flink, spark, dataflow). established a portable, runner-independent api for data processing pipelines.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2016">2016</time>
+                    <h3>Apache Beam</h3>
+                </div>
+                <span class="badge">Big data processing</span>
+            </div>
+            <div class="meta"><span>software / unified processing model</span><span>Google (from Dataflow model); Tyler Akidau, Robert Bradshaw, Craig Chambers; Apache community</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Developers had to choose between batch and stream processing frameworks, writing different code for each.</div>
+            <div class="solution"><strong>How it solved it:</strong> Beam provided a unified programming model for batch and stream processing with pluggable runners (Flink, Spark, Dataflow).</div>
+            <div class="impact"><strong>Why it mattered:</strong> Established a portable, runner-independent API for data processing pipelines.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://beam.apache.org/" target="_blank" rel="noopener noreferrer">Apache Beam</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Beam’s unified model bridges the batch processing paradigms described in this chapter.">Ch. 11: Batch Processing</span><span class="ddia-chip" data-why="Beam’s windowing and trigger model unifies batch and stream processing semantics.">Ch. 12: Stream Processing</span></div>
+        </article>
+
+        <article class="milestone" data-era="2010s" data-category="Data engineering" data-search="2016 dbt data build tool software / analytics engineering data engineering tristan handy; dbt labs (formerly fishtown analytics) analysts writing sql transforms lacked software engineering practices like version control, testing, documentation, and modularity. dbt applied software engineering workflows (version control, testing, documentation, dag-based dependencies) to sql-based data transformations. created the analytics engineering role and became a central tool in the modern data stack.">
+            <div class="pin" aria-hidden="true"></div>
+            <div class="card-head">
+                <div>
+                    <time class="year" datetime="2016">2016</time>
+                    <h3>dbt (data build tool)</h3>
+                </div>
+                <span class="badge">Data engineering</span>
+            </div>
+            <div class="meta"><span>software / analytics engineering</span><span>Tristan Handy; dbt Labs (formerly Fishtown Analytics)</span></div>
+            <div class="problem"><strong>Problem solved:</strong> Analysts writing SQL transforms lacked software engineering practices like version control, testing, documentation, and modularity.</div>
+            <div class="solution"><strong>How it solved it:</strong> dbt applied software engineering workflows (version control, testing, documentation, DAG-based dependencies) to SQL-based data transformations.</div>
+            <div class="impact"><strong>Why it mattered:</strong> Created the "analytics engineering" role and became a central tool in the modern data stack.</div>
+            <div class="refs"><strong>References:</strong> <a href="https://www.getdbt.com/blog/what-exactly-is-dbt" target="_blank" rel="noopener noreferrer">dbt Labs: What is dbt</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="dbt brings declarative, DAG-based transformation pipelines to SQL-based batch processing.">Ch. 11: Batch Processing</span></div>
+        </article>
+
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2016–2018 kubernetes statefulsets and operators platform / operations pattern cloud data systems kubernetes community, coreos/red hat, cncf ecosystem container platforms were initially better for stateless apps than databases requiring stable identity and persistent storage. statefulsets and operators added primitives and automation patterns for stateful services. made cloud-native operation of databases more feasible, though still operationally complex.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2016–2018</div>
+                    <time class="year" datetime="2016">2016–2018</time>
                     <h3>Kubernetes StatefulSets and Operators</h3>
                 </div>
                 <span class="badge">Cloud data systems</span>
@@ -1034,7 +1151,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2017</div>
+                    <time class="year" datetime="2017">2017</time>
                     <h3>FAISS</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1051,7 +1168,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2016–2020, mainstream in 2020s</div>
+                    <time class="year" datetime="2016">2016–2020, mainstream in 2020s</time>
                     <h3>Apache Hudi, Apache Iceberg, Delta Lake, and lakehouse architecture</h3>
                 </div>
                 <span class="badge">Lakehouse</span>
@@ -1068,7 +1185,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2019–2020s</div>
+                    <time class="year" datetime="2019">2019–2020s</time>
                     <h3>DuckDB</h3>
                 </div>
                 <span class="badge">Query processing</span>
@@ -1085,7 +1202,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2019–2020s</div>
+                    <time class="year" datetime="2019">2019–2020s</time>
                     <h3>Data observability</h3>
                 </div>
                 <span class="badge">Data engineering</span>
@@ -1102,7 +1219,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2020</div>
+                    <time class="year" datetime="2020">2020</time>
                     <h3>Retrieval-Augmented Generation (RAG)</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1119,7 +1236,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2019–2021</div>
+                    <time class="year" datetime="2019">2019–2021</time>
                     <h3>Milvus and purpose-built vector databases</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1136,7 +1253,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2021</div>
+                    <time class="year" datetime="2021">2021</time>
                     <h3>Pinecone managed vector database</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1149,16 +1266,16 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Pinecone offers managed vector indexing as a cloud-native retrieval service for embedding search.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
-        <article class="milestone" data-era="2020–2026" data-category="Distributed SQL" data-search="2021 onward foundationdb as a layered distributed transaction substrate software / distributed db substrate distributed sql apple/foundationdb community; database research community many distributed databases need serializable transactions, but building reliable transaction infrastructure repeatedly is hard. foundationdb separated a transactional core from higher-level layers and storage abstractions. showed a layered path for building multiple data models over a strong distributed transaction substrate.">
+        <article class="milestone" data-era="2020–2026" data-category="Distributed SQL" data-search="2009–2021 foundationdb as a layered distributed transaction substrate software / distributed db substrate distributed sql foundationdb inc. founded 2009 acquired by apple 2015 open-sourced 2018 sigmod paper 2021 many distributed databases need serializable transactions, but building reliable transaction infrastructure repeatedly is hard. foundationdb separated a transactional core from higher-level layers and storage abstractions. showed a layered path for building multiple data models over a strong distributed transaction substrate.">
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2021 onward</div>
+                    <time class="year" datetime="2009">2009; open-sourced 2018</time>
                     <h3>FoundationDB as a layered distributed transaction substrate</h3>
                 </div>
                 <span class="badge">Distributed SQL</span>
             </div>
-            <div class="meta"><span>software / distributed DB substrate</span><span>Apple/FoundationDB community; database research community</span></div>
+            <div class="meta"><span>software / distributed DB substrate</span><span>FoundationDB Inc. (founded 2009); acquired by Apple 2015, open-sourced 2018; SIGMOD paper 2021</span></div>
             <div class="problem"><strong>Problem solved:</strong> Many distributed databases need serializable transactions, but building reliable transaction infrastructure repeatedly is hard.</div>
             <div class="solution"><strong>How it solved it:</strong> FoundationDB separated a transactional core from higher-level layers and storage abstractions.</div>
             <div class="impact"><strong>Why it mattered:</strong> Showed a layered path for building multiple data models over a strong distributed transaction substrate.</div>
@@ -1170,7 +1287,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2021–2026</div>
+                    <time class="year" datetime="2021">2021–2026</time>
                     <h3>pgvector and vector search inside PostgreSQL</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1187,7 +1304,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2023–2026</div>
+                    <time class="year" datetime="2023">2023–2026</time>
                     <h3>Vector search becomes a mainstream data-system feature</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1204,7 +1321,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2025</div>
+                    <time class="year" datetime="2025">2025</time>
                     <h3>Apache Flink 2.0 disaggregated state management</h3>
                 </div>
                 <span class="badge">Streaming</span>
@@ -1221,7 +1338,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2025</div>
+                    <time class="year" datetime="2025">2025</time>
                     <h3>Amazon S3 Vectors</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1238,7 +1355,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="pin" aria-hidden="true"></div>
             <div class="card-head">
                 <div>
-                    <div class="year">2025–2026</div>
+                    <time class="year" datetime="2025">2025–2026</time>
                     <h3>Agent-facing real-time analytics and semantic retrieval</h3>
                 </div>
                 <span class="badge">AI / Vector retrieval</span>
@@ -1277,14 +1394,58 @@ const noResults = document.getElementById('noResults');
 const cards = Array.from(document.querySelectorAll('.milestone'));
 const eraSections = Array.from(document.querySelectorAll('.era-section'));
 const chips = Array.from(document.querySelectorAll('.chip'));
+const totalCards = cards.length;
 let activeEra = 'all';
 
 function normalize(s) { return (s || '').toLowerCase().trim(); }
+
+function clearHighlights() {
+    document.querySelectorAll('.milestone mark').forEach(m => {
+        const parent = m.parentNode;
+        parent.replaceChild(document.createTextNode(m.textContent), m);
+        parent.normalize();
+    });
+}
+
+function highlightInNode(node, query) {
+    if (node.nodeType === 3) {
+        const idx = node.textContent.toLowerCase().indexOf(query);
+        if (idx < 0) return;
+        const mark = document.createElement('mark');
+        const after = node.splitText(idx);
+        after.splitText(query.length);
+        mark.textContent = after.textContent;
+        after.parentNode.replaceChild(mark, after);
+    } else if (node.nodeType === 1 && !['MARK','SCRIPT','STYLE'].includes(node.tagName)) {
+        Array.from(node.childNodes).forEach(child => highlightInNode(child, query));
+    }
+}
+
+function updateURL() {
+    const params = new URLSearchParams();
+    if (search.value) params.set('q', search.value);
+    if (category.value !== 'all') params.set('cat', category.value);
+    if (activeEra !== 'all') params.set('era', activeEra);
+    const qs = params.toString();
+    history.replaceState(null, '', qs ? `?${qs}` : window.location.pathname);
+}
+
+function loadFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('q')) search.value = params.get('q');
+    if (params.has('cat')) category.value = params.get('cat');
+    if (params.has('era')) {
+        activeEra = params.get('era');
+        chips.forEach(c => c.classList.toggle('active', c.dataset.eraFilter === activeEra));
+    }
+}
 
 function applyFilters() {
     const q = normalize(search.value);
     const cat = category.value;
     let visible = 0;
+
+    clearHighlights();
 
     cards.forEach(card => {
         const matchesQuery = !q || card.dataset.search.includes(q);
@@ -1292,7 +1453,10 @@ function applyFilters() {
         const matchesEra = activeEra === 'all' || card.dataset.era === activeEra;
         const show = matchesQuery && matchesCategory && matchesEra;
         card.style.display = show ? '' : 'none';
-        if (show) visible += 1;
+        if (show) {
+            visible += 1;
+            if (q) highlightInNode(card, q);
+        }
     });
 
     eraSections.forEach(section => {
@@ -1300,8 +1464,9 @@ function applyFilters() {
         section.style.display = hasVisible ? '' : 'none';
     });
 
-    count.textContent = `${visible} of 59 milestones shown`;
+    count.textContent = `${visible} of ${totalCards} milestones shown`;
     noResults.style.display = visible === 0 ? 'block' : 'none';
+    updateURL();
 }
 
 chips.forEach(chip => {
@@ -1309,9 +1474,6 @@ chips.forEach(chip => {
         activeEra = chip.dataset.eraFilter;
         chips.forEach(c => c.classList.toggle('active', c === chip));
         applyFilters();
-        if (activeEra !== 'all') {
-            const section = document.getElementById(activeEra.toLowerCase().replaceAll('–','-').replaceAll(' ', '-').replaceAll('s','s'));
-        }
     });
 });
 search.addEventListener('input', applyFilters);
@@ -1323,6 +1485,7 @@ reset.addEventListener('click', () => {
     chips.forEach(c => c.classList.toggle('active', c.dataset.eraFilter === 'all'));
     applyFilters();
 });
+loadFromURL();
 applyFilters();
 
 document.addEventListener('click', e => {
