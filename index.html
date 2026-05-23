@@ -95,7 +95,7 @@ input, select, button { font: inherit; }
 }
 .chip.active, .chip:hover { color: var(--ink); border-color: rgba(143,211,255,.5); background: rgba(143,211,255,.12); }
 .layout { display: grid; grid-template-columns: 290px minmax(0,1fr); gap: 28px; padding: 30px 0 70px; }
-aside { position: sticky; top: 132px; align-self: start; }
+aside { position: sticky; top: 132px; align-self: start; max-height: calc(100vh - 148px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(143,211,255,.25) transparent; }
 .side-panel {
     background: rgba(18,26,51,.84); border: 1px solid rgba(255,255,255,.11); border-radius: var(--radius);
     box-shadow: var(--shadow); padding: 18px;
@@ -156,6 +156,21 @@ h3 { margin: 2px 0 0; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.15
 .footer { padding: 36px 0 70px; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
 .footer strong { color: var(--ink); }
 mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; border-radius: .2em; }
+.collapse-toggle {
+    display: none; width: 100%; border: 1px solid rgba(143,211,255,.3); background: rgba(143,211,255,.1);
+    color: var(--ink); padding: 12px 14px; border-radius: 14px; cursor: pointer;
+    font: inherit; font-size: .95rem; font-weight: 600;
+    align-items: center; justify-content: space-between;
+}
+.collapse-toggle .toggle-icon {
+    transition: transform .25s ease; display: inline-block; font-size: .8rem;
+}
+.collapse-toggle.open .toggle-icon { transform: rotate(180deg); }
+.collapse-body {
+    transition: grid-template-rows .3s ease;
+    display: grid; grid-template-rows: 1fr;
+}
+.collapse-body > div { overflow: hidden; }
 .filter-toggle {
     display: none; width: 100%; border: 1px solid rgba(143,211,255,.3); background: rgba(143,211,255,.1);
     color: var(--ink); padding: 12px 14px; border-radius: 14px; cursor: pointer;
@@ -176,7 +191,10 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
     .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .controls { grid-template-columns: 1fr; }
     .layout { grid-template-columns: 1fr; }
-    aside { position: static; }
+    aside { position: static; max-height: none; overflow-y: visible; }
+    .collapse-toggle { display: flex; }
+    .collapse-body { grid-template-rows: 0fr; }
+    .collapse-body.open { grid-template-rows: 1fr; }
     .filter-toggle { display: flex; }
     .filter-body { grid-template-rows: 0fr; }
     .filter-body.open { grid-template-rows: 1fr; }
@@ -245,18 +263,28 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
 
 <main id="main-content" class="wrapper layout">
     <aside>
-        <div class="side-panel">
-            <h2>How to read the timeline</h2>
-            <p>Each card names the breakthrough, the people or organizations behind it, the problem it solved, and why that solution changed the data-system landscape.</p>
-            <div class="phase-map">
-                <div class="phase"><b>1960s–1970s</b><span>Centralized operational data, DBMSs, relational model</span></div>
-                <div class="phase"><b>1980s–1990s</b><span>SQL standardization, transactions, recovery, warehouses</span></div>
-                <div class="phase"><b>2000s</b><span>Web-scale storage, NoSQL, Hadoop, cloud object storage</span></div>
-                <div class="phase"><b>2010s</b><span>Cloud warehouses, streaming, distributed SQL, orchestration</span></div>
-                <div class="phase"><b>2020–2026</b><span>Lakehouse reliability, vector retrieval, AI/agent data access</span></div>
+        <button class="collapse-toggle" id="sidebarToggle" aria-expanded="false" aria-controls="sidebarBody">
+            <span>Timeline guide</span>
+            <span class="toggle-icon">&#9660;</span>
+        </button>
+        <div class="collapse-body" id="sidebarBody">
+            <div>
+                <div class="side-panel">
+                    <h2>DDIA 2nd Edition</h2>
+                    <p>Each card cross-references chapters from Martin Kleppmann's <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/" target="_blank" rel="noopener noreferrer"><em>Designing Data-Intensive Applications</em></a> (2nd ed., 2025). Click the green chapter chips on any card to see why that milestone connects to the chapter's concepts.</p>
+                    <h2 style="margin-top:20px;">How to read the timeline</h2>
+                    <p>Each card names the breakthrough, the people or organizations behind it, the problem it solved, and why that solution changed the data-system landscape.</p>
+                    <div class="phase-map">
+                        <div class="phase"><b>1960s–1970s</b><span>Centralized operational data, DBMSs, relational model</span></div>
+                        <div class="phase"><b>1980s–1990s</b><span>SQL standardization, transactions, recovery, warehouses</span></div>
+                        <div class="phase"><b>2000s</b><span>Web-scale storage, NoSQL, Hadoop, cloud object storage</span></div>
+                        <div class="phase"><b>2010s</b><span>Cloud warehouses, streaming, distributed SQL, orchestration</span></div>
+                        <div class="phase"><b>2020–2026</b><span>Lakehouse reliability, vector retrieval, AI/agent data access</span></div>
+                    </div>
+                    <h2 style="margin-top:20px;">Category density</h2>
+                    <ul class="cat-list"><li><span>AI / Vector retrieval</span><strong>8</strong></li><li><span>Query processing</span><strong>6</strong></li><li><span>Big data processing</span><strong>5</strong></li><li><span>Cloud data systems</span><strong>5</strong></li><li><span>Distributed systems</span><strong>5</strong></li><li><span>Data warehouse / OLAP</span><strong>4</strong></li><li><span>Distributed SQL</span><strong>4</strong></li><li><span>Operational DBMS</span><strong>4</strong></li><li><span>Commercialization</span><strong>3</strong></li><li><span>Data engineering</span><strong>3</strong></li><li><span>Distributed storage</span><strong>3</strong></li><li><span>Streaming</span><strong>3</strong></li><li><span>Data model</span><strong>2</strong></li><li><span>Storage engine</span><strong>2</strong></li><li><span>Transactions</span><strong>2</strong></li><li><span>Web-scale systems</span><strong>2</strong></li><li><span>Data formats</span><strong>1</strong></li><li><span>Extensible DBMS</span><strong>1</strong></li><li><span>Lakehouse</span><strong>1</strong></li><li><span>Parallel DBMS</span><strong>1</strong></li></ul>
+                </div>
             </div>
-            <h2 style="margin-top:20px;">Category density</h2>
-            <ul class="cat-list"><li><span>AI / Vector retrieval</span><strong>8</strong></li><li><span>Query processing</span><strong>6</strong></li><li><span>Big data processing</span><strong>5</strong></li><li><span>Cloud data systems</span><strong>5</strong></li><li><span>Distributed systems</span><strong>5</strong></li><li><span>Data warehouse / OLAP</span><strong>4</strong></li><li><span>Distributed SQL</span><strong>4</strong></li><li><span>Operational DBMS</span><strong>4</strong></li><li><span>Commercialization</span><strong>3</strong></li><li><span>Data engineering</span><strong>3</strong></li><li><span>Distributed storage</span><strong>3</strong></li><li><span>Streaming</span><strong>3</strong></li><li><span>Data model</span><strong>2</strong></li><li><span>Storage engine</span><strong>2</strong></li><li><span>Transactions</span><strong>2</strong></li><li><span>Web-scale systems</span><strong>2</strong></li><li><span>Data formats</span><strong>1</strong></li><li><span>Extensible DBMS</span><strong>1</strong></li><li><span>Lakehouse</span><strong>1</strong></li><li><span>Parallel DBMS</span><strong>1</strong></li></ul>
         </div>
     </aside>
     <section>
@@ -1373,12 +1401,19 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
 
 <footer class="footer">
     <div class="wrapper">
-        <p><strong>Interpretive arc:</strong> data systems evolved from centralized operational records to relational abstraction, reliable transactions, analytical warehouses, web-scale distributed systems, cloud-native architectures, real-time streams, open lakehouse tables, and finally AI-facing semantic retrieval. The frontier in 2026 is not only storing data, but making heterogeneous operational, analytical, streaming, and vector data consistent, fresh, cheap, and queryable enough for humans and software agents.</p>
+        <p id="interpretive-arc"><strong>Interpretive arc:</strong> data systems evolved from centralized operational records to relational abstraction, reliable transactions, analytical warehouses, web-scale distributed systems, cloud-native architectures, real-time streams, open lakehouse tables, and finally AI-facing semantic retrieval. The frontier in 2026 is not only storing data, but making heterogeneous operational, analytical, streaming, and vector data consistent, fresh, cheap, and queryable enough for humans and software agents.</p>
         <p>References are embedded in each card. This is a selected timeline rather than an exhaustive history of every database product or research paper.</p>
     </div>
 </footer>
 
 <script>
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarBody = document.getElementById('sidebarBody');
+sidebarToggle.addEventListener('click', () => {
+    const open = sidebarBody.classList.toggle('open');
+    sidebarToggle.classList.toggle('open', open);
+    sidebarToggle.setAttribute('aria-expanded', open);
+});
 const filterToggle = document.getElementById('filterToggle');
 const filterBody = document.getElementById('filterBody');
 filterToggle.addEventListener('click', () => {
