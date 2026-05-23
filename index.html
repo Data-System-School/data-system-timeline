@@ -84,12 +84,14 @@ input, select, button { font: inherit; }
 .search:focus, .select:focus { border-color: rgba(143,211,255,.72); box-shadow: 0 0 0 4px rgba(143,211,255,.12); }
 .select option { color: #0b1020; }
 .btn {
+    display: inline-flex; align-items: center; gap: 6px;
     border: 1px solid rgba(143,211,255,.35); background: rgba(143,211,255,.11); color: var(--ink);
     padding: 12px 14px; border-radius: 14px; cursor: pointer; white-space: nowrap;
 }
 .btn:hover { background: rgba(143,211,255,.18); }
 .chips { display:flex; flex-wrap: wrap; gap: 8px; padding: 0 0 14px; }
 .chip {
+    display: inline-flex; align-items: center; gap: 5px;
     border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.06); color: var(--muted);
     border-radius: 999px; padding: 8px 12px; cursor: pointer;
 }
@@ -145,9 +147,9 @@ h3 { margin: 2px 0 0; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.15
 .solution strong { color: var(--accent); }
 .impact strong { color: var(--accent-2); }
 .refs { display:flex; flex-wrap: wrap; gap: 8px; align-items:center; color: var(--muted); margin-top: 12px; font-size: .88rem; }
-.refs a { display:inline-flex; border: 1px solid rgba(143,211,255,.25); border-radius: 999px; padding: 5px 9px; background: rgba(143,211,255,.08); }
+.refs a { display:inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(143,211,255,.25); border-radius: 999px; padding: 5px 9px; background: rgba(143,211,255,.08); }
 .ddia { display:flex; flex-wrap: wrap; gap: 8px; align-items:center; color: var(--muted); margin-top: 8px; font-size: .88rem; }
-.ddia-chip { display:inline-flex; border: 1px solid rgba(198,246,213,.25); border-radius: 999px; padding: 5px 9px; background: rgba(198,246,213,.08); color: var(--accent-2); cursor: pointer; user-select: none; transition: all .15s ease; }
+.ddia-chip { display:inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(198,246,213,.25); border-radius: 999px; padding: 5px 9px; background: rgba(198,246,213,.08); color: var(--accent-2); cursor: pointer; user-select: none; transition: all .15s ease; }
 .ddia-chip:hover { border-color: rgba(198,246,213,.5); background: rgba(198,246,213,.14); }
 .ddia-chip.active { border-color: rgba(198,246,213,.7); background: rgba(198,246,213,.22); }
 .ddia-why { margin-top: 8px; padding: 11px 14px; border-radius: 14px; background: rgba(198,246,213,.06); border: 1px solid rgba(198,246,213,.16); color: var(--muted); font-size: .9rem; line-height: 1.55; animation: ddiaFadeIn .18s ease; }
@@ -187,6 +189,42 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
 }
 .filter-body > div { overflow: hidden; }
 .filter-body.collapsed { grid-template-rows: 0fr; }
+/* --- Link icons (external-link arrow) --- */
+.refs a::before {
+    content: ''; width: 12px; height: 12px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg>") no-repeat center / contain;
+}
+.side-panel a { display: inline-flex; align-items: center; gap: 5px; }
+.side-panel a::before {
+    content: ''; width: 13px; height: 13px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238fd3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/><polyline points='15 3 21 3 21 9'/><line x1='10' y1='14' x2='21' y2='3'/></svg>") no-repeat center / contain;
+}
+/* --- Button icons (contextual per type) --- */
+.btn::before {
+    content: ''; width: 14px; height: 14px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eef3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 4 1 10 7 10'/><path d='M3.51 15a9 9 0 1 0 2.13-9.36L1 10'/></svg>") no-repeat center / contain;
+}
+.filter-toggle > span:first-child,
+.collapse-toggle > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+.filter-toggle > span:first-child::before {
+    content: ''; width: 14px; height: 14px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eef3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polygon points='22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3'/></svg>") no-repeat center / contain;
+}
+.collapse-toggle > span:first-child::before {
+    content: ''; width: 14px; height: 14px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eef3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polygon points='16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76'/></svg>") no-repeat center / contain;
+}
+.chip::before {
+    content: ''; width: 12px; height: 12px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aab6d3' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>") no-repeat center / contain;
+}
+.chip.active::before, .chip:hover::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23eef3ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>");
+}
+.ddia-chip::before {
+    content: ''; width: 11px; height: 11px; flex-shrink: 0;
+    background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c6f6d5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z'/></svg>") no-repeat center / contain;
+}
 @media (max-width: 980px) {
     .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .controls { grid-template-columns: 1fr; }
