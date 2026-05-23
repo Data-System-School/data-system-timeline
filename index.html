@@ -135,6 +135,12 @@ h3 { margin: 2px 0 0; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.15
 .impact strong { color: var(--accent-2); }
 .refs { display:flex; flex-wrap: wrap; gap: 8px; align-items:center; color: var(--muted); margin-top: 12px; font-size: .88rem; }
 .refs a { display:inline-flex; border: 1px solid rgba(143,211,255,.25); border-radius: 999px; padding: 5px 9px; background: rgba(143,211,255,.08); }
+.ddia { display:flex; flex-wrap: wrap; gap: 8px; align-items:center; color: var(--muted); margin-top: 8px; font-size: .88rem; }
+.ddia-chip { display:inline-flex; border: 1px solid rgba(198,246,213,.25); border-radius: 999px; padding: 5px 9px; background: rgba(198,246,213,.08); color: var(--accent-2); cursor: pointer; user-select: none; transition: all .15s ease; }
+.ddia-chip:hover { border-color: rgba(198,246,213,.5); background: rgba(198,246,213,.14); }
+.ddia-chip.active { border-color: rgba(198,246,213,.7); background: rgba(198,246,213,.22); }
+.ddia-why { margin-top: 8px; padding: 11px 14px; border-radius: 14px; background: rgba(198,246,213,.06); border: 1px solid rgba(198,246,213,.16); color: var(--muted); font-size: .9rem; line-height: 1.55; animation: ddiaFadeIn .18s ease; }
+@keyframes ddiaFadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 .no-results { display:none; padding: 30px; text-align:center; color: var(--muted); border: 1px dashed rgba(255,255,255,.2); border-radius: 20px; }
 .footer { padding: 36px 0 70px; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
 .footer strong { color: var(--ink); }
@@ -256,6 +262,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> SABRE centralized reservation inventory and made real-time operational data processing possible at business scale.</div>
             <div class="impact"><strong>Why it mattered:</strong> A landmark OLTP-style system that demonstrated large businesses could depend on centralized, always-current data infrastructure.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.ibm.com/history/sabre" target="_blank" rel="noopener noreferrer">IBM History: SABRE</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="SABRE embodies the fundamental OLTP trade-off—an always-on operational system that shaped how we think about real-time data architectures.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="SABRE’s 24/7 reservation system required the reliability, performance, and scalability principles that define nonfunctional requirements.">Ch. 2: Nonfunctional Requirements</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Operational DBMS" data-search="1961–1964 integrated data store (ids) software / dbms operational dbms charles w. bachman, general electric application teams had to hand-code file navigation and record access for each program, creating brittle and duplicated data logic. ids treated the database as a managed shared resource and introduced direct-access database management concepts. widely cited as the first direct-access dbms; bachman later received the 1973 acm turing award for database contributions.">
@@ -272,6 +279,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> IDS treated the database as a managed shared resource and introduced direct-access database management concepts.</div>
             <div class="impact"><strong>Why it mattered:</strong> Widely cited as the first direct-access DBMS; Bachman later received the 1973 ACM Turing Award for database contributions.</div>
             <div class="refs"><strong>References:</strong> <a href="https://tschwarz.mscs.mu.edu/Classes/DB23/HW/bachmanIDS.pdf" target="_blank" rel="noopener noreferrer">Bachman IDS paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="IDS introduced the navigational data model—a precursor that the relational model was explicitly designed to replace.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Operational DBMS" data-search="1966–1968 ibm information management system (ims) software / hierarchical dbms operational dbms ibm, nasa, north american rockwell apollo/saturn v engineering required huge hierarchical bills of material and engineering-change data that conventional files could not manage cleanly. ims provided a hierarchical dbms for mission-critical structured data and high-volume transaction workloads. proved dbmss could support mission-critical enterprise workloads and remains historically important in mainframe environments.">
@@ -288,6 +296,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> IMS provided a hierarchical DBMS for mission-critical structured data and high-volume transaction workloads.</div>
             <div class="impact"><strong>Why it mattered:</strong> Proved DBMSs could support mission-critical enterprise workloads and remains historically important in mainframe environments.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.ibm.com/history/information-management-system" target="_blank" rel="noopener noreferrer">IBM History: IMS</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="IMS’s hierarchical model is a key example of pre-relational data modeling, contrasted with relational and document approaches.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Data model" data-search="1965–1971 codasyl dbtg network database model standard / model data model codasyl database task group; influenced by bachman’s navigational database ideas early database vendors and users lacked a common way to define schemas, subschemas, and database manipulation interfaces. codasyl specified a network-style data model and database definition/manipulation language concepts. standardized much of the pre-relational database worldview and shaped navigational database practice.">
@@ -304,6 +313,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> CODASYL specified a network-style data model and database definition/manipulation language concepts.</div>
             <div class="impact"><strong>Why it mattered:</strong> Standardized much of the pre-relational database worldview and shaped navigational database practice.</div>
             <div class="refs"><strong>References:</strong> <a href="https://scispace.com/papers/data-base-task-group-report-to-the-codasyl-programming-it3vdc1zr6" target="_blank" rel="noopener noreferrer">CODASYL DBTG report record</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="The CODASYL network model is directly compared with the relational model to illustrate fundamental data modeling trade-offs.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Data model" data-search="1970 relational model paper / model data model edgar f. codd, ibm users had to navigate physical record links; applications were tightly coupled to access paths and storage details. codd proposed representing data as relations/tables and using formal logic so users specify what they want, not how to traverse records. established logical data independence, declarative querying, and the foundation for sql databases.">
@@ -320,6 +330,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Codd proposed representing data as relations/tables and using formal logic so users specify what they want, not how to traverse records.</div>
             <div class="impact"><strong>Why it mattered:</strong> Established logical data independence, declarative querying, and the foundation for SQL databases.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf" target="_blank" rel="noopener noreferrer">Codd 1970 paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Codd’s relational model is the foundational data model around which this entire chapter is organized.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Query processing" data-search="1972–1976 ingres research system software / research dbms query processing michael stonebraker, eugene wong, uc berkeley the relational model was elegant, but skeptics questioned whether relational databases could be practical and performant. ingres implemented a working relational dbms and query language for real users and research workloads. influenced commercial relational systems and the lineage that eventually produced postgresql.">
@@ -336,6 +347,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> INGRES implemented a working relational DBMS and query language for real users and research workloads.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced commercial relational systems and the lineage that eventually produced PostgreSQL.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.cs.cmu.edu/~natassa/courses/15-721/papers/p225-stonebraker.pdf" target="_blank" rel="noopener noreferrer">Stonebraker INGRES paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="INGRES pioneered relational query language research, contributing to the declarative query paradigm discussed here.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Query processing" data-search="1974–1979 ibm system r, sequel/sql, and cost-based optimization software / papers query processing ibm san jose; donald chamberlin, raymond boyce, patricia selinger, and colleagues declarative relational queries needed to be translated automatically into efficient physical access plans. system r developed sql-style querying and a cost-based optimizer that selected access paths and join plans. made relational querying practical and created the optimizer architecture used by modern sql systems.">
@@ -352,6 +364,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> System R developed SQL-style querying and a cost-based optimizer that selected access paths and join plans.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made relational querying practical and created the optimizer architecture used by modern SQL systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://research.ibm.com/publications/access-path-selection-in-a-relational-database-management-system" target="_blank" rel="noopener noreferrer">Selinger et al. access-path selection</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="System R’s SQL became the dominant relational query language, shaping how we declare and interact with data models.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="System R’s cost-based query optimizer pioneered the access-path selection techniques central to efficient storage and retrieval.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1960s–1970s" data-category="Commercialization" data-search="1979 oracle version 2 company / commercial dbms commercialization relational software inc. / oracle; larry ellison, bob miner, ed oates relational databases and sql were still largely research or laboratory ideas; enterprises needed purchasable products. oracle v2 commercialized sql relational database technology. helped move relational databases into mainstream enterprise software markets.">
@@ -368,6 +381,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Oracle V2 commercialized SQL relational database technology.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped move relational databases into mainstream enterprise software markets.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.oracle.com/database/50-years-relational-database/" target="_blank" rel="noopener noreferrer">Oracle: 50 years of relational database</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Oracle’s commercialization illustrates the trade-off between research prototypes and production-ready data systems.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="Oracle brought the relational model from research labs into commercial production, validating it at scale.">Ch. 3: Data Models</span></div>
         </article>
         </div></section><section class="era-section" id="1980s-1990s" data-era-section="1980s–1990s"><div class="era-heading"><span>1980s–1990s</span><strong>12 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="1980s–1990s" data-category="Transactions" data-search="late 1970s–1980s transaction processing theory and acid systems papers / systems theory transactions jim gray and collaborators concurrent users and crashes made database updates unsafe: partial writes, lost updates, dirty reads, and inconsistent state were common risks. transaction processing theory formalized atomicity, consistency, isolation, durability, commit protocols, locking, and recovery. created the correctness foundation for enterprise oltp, banking, reservations, inventory, and other mission-critical systems.">
@@ -384,6 +398,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Transaction processing theory formalized atomicity, consistency, isolation, durability, commit protocols, locking, and recovery.</div>
             <div class="impact"><strong>Why it mattered:</strong> Created the correctness foundation for enterprise OLTP, banking, reservations, inventory, and other mission-critical systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://arxiv.org/pdf/2310.04601" target="_blank" rel="noopener noreferrer">Overview of Jim Gray’s transaction-processing work</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="This chapter is built around the ACID transaction guarantees that these foundational systems formalized.">Ch. 8: Transactions</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Commercialization" data-search="1983 ibm db2 software / commercial dbms commercialization ibm large ibm mainframe customers needed a production-grade relational database with sql support for enterprise workloads. db2 brought relational data management and sql to ibm’s mission-critical enterprise platform. accelerated relational database adoption in large organizations.">
@@ -400,6 +415,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Db2 brought relational data management and SQL to IBM’s mission-critical enterprise platform.</div>
             <div class="impact"><strong>Why it mattered:</strong> Accelerated relational database adoption in large organizations.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.ibm.com/new/announcements/celebrating-30-years-of-db2-running-the-worlds-mission-critical-workloads" target="_blank" rel="noopener noreferrer">IBM: 30 years of Db2</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Db2 established the relational model as the enterprise standard for mission-critical structured data.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="Db2’s strong transaction guarantees exemplify the ACID properties and isolation levels analyzed here.">Ch. 8: Transactions</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Data warehouse / OLAP" data-search="1984 teradata dbc/1012 company / mpp database computer data warehouse / olap teradata a single machine could not economically scan and analyze very large business datasets. teradata combined database software with parallel hardware in a massively parallel database computer. helped establish mpp data warehousing for large-scale analytical workloads.">
@@ -416,6 +432,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Teradata combined database software with parallel hardware in a massively parallel database computer.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped establish MPP data warehousing for large-scale analytical workloads.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.computerhistory.org/collections/catalog/102621859/" target="_blank" rel="noopener noreferrer">Computer History Museum: DBC/1012</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Teradata pioneered the shared-nothing partitioning architecture for massively parallel analytical query processing.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Query processing" data-search="1986 ansi sql standard standard query processing ansi x3h2 committee and sql vendors sql dialect fragmentation made it hard for users and tools to move across relational database vendors. the ansi sql standard defined a common language baseline for relational querying. improved portability, education, procurement, and ecosystem growth for relational databases.">
@@ -432,6 +449,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> The ANSI SQL standard defined a common language baseline for relational querying.</div>
             <div class="impact"><strong>Why it mattered:</strong> Improved portability, education, procurement, and ecosystem growth for relational databases.</div>
             <div class="refs"><strong>References:</strong> <a href="https://blog.ansi.org/ansi/sql-standard-iso-iec-9075-2023-ansi-x3-135/" target="_blank" rel="noopener noreferrer">ANSI SQL standard overview</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="SQL standardization codified the declarative query language interface for relational data models.">Ch. 3: Data Models</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Extensible DBMS" data-search="1986 onward postgres software / research dbms extensible dbms michael stonebraker, uc berkeley first-generation relational systems had rigid scalar types and limited support for complex application-specific objects and operators. postgres introduced object-relational extensibility, user-defined types/operators, and rules. became the intellectual ancestor of postgresql and influenced extensible database architecture.">
@@ -448,6 +466,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> POSTGRES introduced object-relational extensibility, user-defined types/operators, and rules.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became the intellectual ancestor of PostgreSQL and influenced extensible database architecture.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.postgresql.org/docs/current/history.html" target="_blank" rel="noopener noreferrer">PostgreSQL history</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="POSTGRES’s extensible type system pushed data models beyond rigid relational schemas with user-defined types.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="POSTGRES explored novel storage approaches including its append-only, log-structured storage engine design.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Parallel DBMS" data-search="1986–1990s gamma and shared-nothing parallel db research paper / research system parallel dbms david dewitt and university of wisconsin database group relational query execution needed to scale beyond a single server without centralized bottlenecks. gamma showed how data partitioning and parallel relational operators could run on shared-nothing architectures. influenced parallel databases, mpp warehouses, and later distributed analytical engines.">
@@ -464,6 +483,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Gamma showed how data partitioning and parallel relational operators could run on shared-nothing architectures.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced parallel databases, MPP warehouses, and later distributed analytical engines.</div>
             <div class="refs"><strong>References:</strong> <a href="https://pages.cs.wisc.edu/~dewitt/includes/paralleldb/vldb86.pdf" target="_blank" rel="noopener noreferrer">Gamma shared-nothing paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Gamma’s shared-nothing architecture is a foundational research reference for partitioned parallel database design.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Transactions" data-search="1992 aries recovery algorithm paper / recovery design transactions c. mohan and ibm collaborators databases needed fast, correct recovery after crashes while supporting fine-grained locking and high concurrency. aries used write-ahead logging, repeating history during redo, and logical undo for robust crash recovery. became one of the most influential recovery algorithms in commercial database systems.">
@@ -480,6 +500,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> ARIES used write-ahead logging, repeating history during redo, and logical undo for robust crash recovery.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became one of the most influential recovery algorithms in commercial database systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://web.stanford.edu/class/cs345d-01/rl/aries.pdf" target="_blank" rel="noopener noreferrer">ARIES paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="ARIES defined write-ahead logging and crash recovery—techniques central to transaction durability guarantees.">Ch. 8: Transactions</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Data warehouse / OLAP" data-search="early–mid 1990s data warehouse architecture and dimensional modeling architecture / books data warehouse / olap bill inmon; ralph kimball operational databases were poor environments for long-term, historical, cross-functional business analysis. warehousing separated analytical data from oltp and dimensional modeling made metrics, facts, and dimensions easier to query. created the standard enterprise bi architecture for decades.">
@@ -496,6 +517,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Warehousing separated analytical data from OLTP and dimensional modeling made metrics, facts, and dimensions easier to query.</div>
             <div class="impact"><strong>Why it mattered:</strong> Created the standard enterprise BI architecture for decades.</div>
             <div class="refs"><strong>References:</strong> <a href="https://books.google.com/books/about/Building_the_Data_Warehouse.html?id=duRQAAAAMAAJ" target="_blank" rel="noopener noreferrer">Inmon, Building the Data Warehouse</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="The data warehouse exemplifies the fundamental OLTP/OLAP architectural split in data systems design.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="Star schemas and column-oriented storage for analytical queries are covered extensively in this chapter.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Commercialization" data-search="1995–1996 mysql and postgresql open-source relational systems software / open source commercialization mysql ab founders michael “monty” widenius, david axmark, allan larsson; postgresql community developers and web companies needed affordable, accessible sql databases without expensive enterprise licensing. open-source relational systems made production sql databases widely available to websites, startups, and later cloud services. became foundational to the web era and modern open-source database ecosystem.">
@@ -512,6 +534,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Open-source relational systems made production SQL databases widely available to websites, startups, and later cloud services.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became foundational to the web era and modern open-source database ecosystem.</div>
             <div class="refs"><strong>References:</strong> <a href="https://blogs.oracle.com/mysql/mysql-retrospective-the-early-years" target="_blank" rel="noopener noreferrer">MySQL retrospective</a><a href="https://www.postgresql.org/docs/current/history.html" target="_blank" rel="noopener noreferrer">PostgreSQL history</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Both systems implement the relational model with different design philosophies and extension points.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="Their contrasting storage engines (InnoDB B-tree vs. PostgreSQL heap) illustrate key storage design trade-offs.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Data warehouse / OLAP" data-search="1995–1997 data cube and olap relational aggregation paper / query operator data warehouse / olap jim gray, surajit chaudhuri, adam bosworth, andrew layman, hamid pirahesh, and collaborators sql group by was too limited for multidimensional roll-up, drill-down, subtotals, and cross-tabs. the cube operator generalized aggregation for multidimensional olap queries. influenced sql extensions, olap engines, and business-intelligence query semantics.">
@@ -528,6 +551,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> The cube operator generalized aggregation for multidimensional OLAP queries.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced SQL extensions, OLAP engines, and business-intelligence query semantics.</div>
             <div class="refs"><strong>References:</strong> <a href="https://arxiv.org/pdf/cs/0701155" target="_blank" rel="noopener noreferrer">Data Cube paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="OLAP cubes and materialized aggregates are discussed as storage-level optimizations for analytical queries.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Storage engine" data-search="1996 log-structured merge tree (lsm-tree) paper / storage structure storage engine patrick o’neil, edward cheng, dieter gawlick, elizabeth o’neil traditional disk indexes were inefficient for high-write workloads because random in-place updates were expensive. lsm-trees batch writes in memory and merge sorted components over time, trading write efficiency against controlled read amplification. became foundational for bigtable, cassandra, hbase, leveldb, rocksdb, and many key-value stores.">
@@ -544,6 +568,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> LSM-trees batch writes in memory and merge sorted components over time, trading write efficiency against controlled read amplification.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became foundational for Bigtable, Cassandra, HBase, LevelDB, RocksDB, and many key-value stores.</div>
             <div class="refs"><strong>References:</strong> <a href="https://dsf.berkeley.edu/cs286/papers/lsm-acta1996.pdf" target="_blank" rel="noopener noreferrer">LSM-tree paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="The LSM-tree is a core storage structure contrasted with B-trees, optimized for write-heavy workloads.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="1980s–1990s" data-category="Distributed systems" data-search="1998–2001 paxos made accessible paper / consensus algorithm distributed systems leslie lamport replicated distributed systems needed machines to agree on state despite failures and message delays. paxos formalized fault-tolerant distributed consensus for replicated logs and state machines. became a foundation for metadata services, distributed databases, and coordination systems.">
@@ -560,6 +585,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Paxos formalized fault-tolerant distributed consensus for replicated logs and state machines.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a foundation for metadata services, distributed databases, and coordination systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://lamport.azurewebsites.net/pubs/paxos-simple.pdf" target="_blank" rel="noopener noreferrer">Paxos Made Simple PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Paxos is the canonical consensus algorithm whose properties, limitations, and variants are analyzed in depth.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         </div></section><section class="era-section" id="2000s" data-era-section="2000s"><div class="era-heading"><span>2000s</span><strong>12 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="2000s" data-category="Distributed systems" data-search="2000–2002 cap theorem / brewer’s conjecture formalized theory / paper distributed systems eric brewer; seth gilbert and nancy lynch distributed-system designers needed a clear framework for the trade-offs caused by network partitions. cap clarified that under partition, systems must trade off consistency and availability. strongly shaped nosql and distributed database design debates in the 2000s and 2010s.">
@@ -576,6 +602,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> CAP clarified that under partition, systems must trade off consistency and availability.</div>
             <div class="impact"><strong>Why it mattered:</strong> Strongly shaped NoSQL and distributed database design debates in the 2000s and 2010s.</div>
             <div class="refs"><strong>References:</strong> <a href="https://dl.acm.org/doi/10.1145/564585.564601" target="_blank" rel="noopener noreferrer">Gilbert &amp; Lynch CAP paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="CAP’s impossibility result arises directly from the unreliable networks and partial failures discussed here.">Ch. 9: Distributed Systems</span><span class="ddia-chip" data-why="The CAP theorem and PACELC framework shape the consistency–availability trade-off analysis in this chapter.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Web-scale systems" data-search="2003–2004 memcached software / distributed cache web-scale systems brad fitzpatrick, danga interactive / livejournal dynamic websites repeatedly hit databases for the same read-heavy data, overloading backing stores. memcached provided a simple distributed in-memory cache in front of databases and applications. became a standard web-scale architecture component for reducing database load and latency.">
@@ -592,6 +619,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Memcached provided a simple distributed in-memory cache in front of databases and applications.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a standard web-scale architecture component for reducing database load and latency.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.linuxjournal.com/article/7451" target="_blank" rel="noopener noreferrer">Linux Journal: memcached</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Caching layers like Memcached address the performance and scalability requirements defined in this chapter.">Ch. 2: Nonfunctional Requirements</span><span class="ddia-chip" data-why="Distributed caches raise consistency challenges analogous to replication lag and stale reads.">Ch. 6: Replication</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Distributed storage" data-search="2003 google file system (gfs) paper / distributed storage distributed storage sanjay ghemawat, howard gobioff, shun-tak leung, google google needed fault-tolerant file storage for huge datasets on unreliable commodity servers. gfs optimized distributed storage for large files, sequential access, replication, and failure recovery. influenced hdfs and large-scale distributed storage design.">
@@ -608,6 +636,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> GFS optimized distributed storage for large files, sequential access, replication, and failure recovery.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced HDFS and large-scale distributed storage design.</div>
             <div class="refs"><strong>References:</strong> <a href="https://research.google/pubs/the-google-file-system/" target="_blank" rel="noopener noreferrer">Google Research: GFS</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="GFS uses single-leader replication with automatic failover for fault tolerance across commodity hardware.">Ch. 6: Replication</span><span class="ddia-chip" data-why="GFS distributes file chunks across servers, applying partitioning principles for parallel I/O throughput.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Big data processing" data-search="2004 mapreduce paper / batch-compute system big data processing jeffrey dean, sanjay ghemawat, google writing reliable distributed batch jobs over huge datasets required manual scheduling, failure handling, and data distribution. mapreduce let developers write map and reduce functions while the runtime handled distribution, retries, and aggregation. defined the first mainstream big-data programming model and inspired hadoop mapreduce.">
@@ -624,6 +653,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> MapReduce let developers write map and reduce functions while the runtime handled distribution, retries, and aggregation.</div>
             <div class="impact"><strong>Why it mattered:</strong> Defined the first mainstream big-data programming model and inspired Hadoop MapReduce.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/conference/osdi-04/mapreduce-simplified-data-processing-large-clusters" target="_blank" rel="noopener noreferrer">OSDI 2004 MapReduce paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="MapReduce is the foundational batch processing paradigm that this entire chapter builds upon.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Data warehouse / OLAP" data-search="2005 c-store and vertica-style column stores paper / commercial lineage data warehouse / olap michael stonebraker, daniel abadi, samuel madden, and collaborators; later vertica row stores wasted i/o for analytical queries that scanned a few columns across many rows. columnar storage improved compression, column pruning, vectorized scans, and analytical performance. influenced modern cloud warehouses and analytical engines.">
@@ -640,6 +670,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Columnar storage improved compression, column pruning, vectorized scans, and analytical performance.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced modern cloud warehouses and analytical engines.</div>
             <div class="refs"><strong>References:</strong> <a href="https://andrew.nerdnetworks.org/pdf/p1790_andrewlamb_vldb2012.pdf" target="_blank" rel="noopener noreferrer">Vertica paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="C-Store’s column-oriented storage is a central innovation in analytical data storage and retrieval.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Cloud data systems" data-search="2006 amazon s3 company / cloud storage cloud data systems amazon web services teams needed durable, scalable, api-accessible storage without buying or operating storage hardware. s3 provided low-cost object storage independent of local filesystems and databases. became a foundation for data lakes, cloud-native warehouses, and disaggregated storage/compute systems.">
@@ -656,6 +687,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> S3 provided low-cost object storage independent of local filesystems and databases.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a foundation for data lakes, cloud-native warehouses, and disaggregated storage/compute systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://press.aboutamazon.com/2006/3/amazon-web-services-launches" target="_blank" rel="noopener noreferrer">AWS launch announcement</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="S3 shifted the architectural trade-off from self-managed infrastructure to cloud-managed storage services.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="S3 serves as the distributed filesystem substrate underlying modern batch processing pipelines.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Distributed storage" data-search="2006 bigtable paper / distributed storage system distributed storage fay chang, jeffrey dean, sanjay ghemawat, wilson hsieh, deborah wallach, mike burrows, tushar chandra, andrew fikes, robert gruber, google google needed structured storage for petabyte-scale data across thousands of machines. bigtable implemented a sparse, distributed, persistent, sorted multidimensional map. influenced hbase, cassandra, and wide-column database design.">
@@ -672,6 +704,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Bigtable implemented a sparse, distributed, persistent, sorted multidimensional map.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced HBase, Cassandra, and wide-column database design.</div>
             <div class="refs"><strong>References:</strong> <a href="https://research.google/pubs/bigtable-a-distributed-storage-system-for-structured-data/" target="_blank" rel="noopener noreferrer">Google Research: Bigtable</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Bigtable’s SSTable and LSM-tree storage engine are key examples of log-structured retrieval systems.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Bigtable partitions data by sorted row-key ranges across tablet servers for horizontal scalability.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Big data processing" data-search="2006 onward hadoop software / open-source ecosystem big data processing doug cutting, mike cafarella, yahoo, apache community google-style distributed storage and batch processing were not available to most organizations. hadoop provided open-source hdfs and mapreduce on commodity clusters. made big-data processing accessible across industry and academia.">
@@ -688,6 +721,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Hadoop provided open-source HDFS and MapReduce on commodity clusters.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made big-data processing accessible across industry and academia.</div>
             <div class="refs"><strong>References:</strong> <a href="https://cloud.google.com/learn/what-is-hadoop" target="_blank" rel="noopener noreferrer">Google Cloud: what is Hadoop</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Hadoop’s HDFS and MapReduce ecosystem are the primary batch processing case study in this chapter.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Distributed systems" data-search="2007 amazon dynamo paper / key-value store distributed systems amazon; werner vogels and team amazon needed always-available shopping-cart and key-value services even during server failures and network partitions. dynamo used consistent hashing, quorum reads/writes, versioning, and application-assisted conflict resolution. set the template for highly available nosql key-value stores.">
@@ -704,6 +738,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Dynamo used consistent hashing, quorum reads/writes, versioning, and application-assisted conflict resolution.</div>
             <div class="impact"><strong>Why it mattered:</strong> Set the template for highly available NoSQL key-value stores.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.amazon.science/publications/dynamo-amazons-highly-available-key-value-store" target="_blank" rel="noopener noreferrer">Amazon Science: Dynamo</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Dynamo’s leaderless replication with sloppy quorums is extensively analyzed as an alternative to leader-based approaches.">Ch. 6: Replication</span><span class="ddia-chip" data-why="Dynamo’s consistent hashing is a foundational technique for distributed data partitioning.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Distributed storage" data-search="2008–2010 cassandra and wide-column nosql software / distributed database distributed storage facebook; avinash lakshman, prashant malik; apache community large web applications needed high write throughput, high availability, and no single point of failure. cassandra combined dynamo-like distribution with bigtable-like data modeling. became a major open-source distributed database for write-heavy and always-on workloads.">
@@ -720,6 +755,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Cassandra combined Dynamo-like distribution with Bigtable-like data modeling.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a major open-source distributed database for write-heavy and always-on workloads.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf" target="_blank" rel="noopener noreferrer">Cassandra LADIS paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Cassandra uses LSM-tree storage inherited from Bigtable’s design principles.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Cassandra’s leaderless replication follows the Dynamo model with tunable consistency levels.">Ch. 6: Replication</span><span class="ddia-chip" data-why="Cassandra partitions data using consistent hashing across a token ring topology.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Big data processing" data-search="2009 hive software / sql-on-hadoop big data processing facebook data infrastructure team; apache community mapreduce was too low-level for analysts and bi users who wanted sql-like access to hadoop data. hive introduced a sql-like warehouse layer over hadoop datasets. helped sql become the common interface for big-data systems.">
@@ -736,6 +772,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Hive introduced a SQL-like warehouse layer over Hadoop datasets.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped SQL become the common interface for big-data systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.vldb.org/pvldb/vol2/vldb09-938.pdf" target="_blank" rel="noopener noreferrer">Hive VLDB paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Hive brought SQL-like declarative processing to the Hadoop batch processing ecosystem.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2000s" data-category="Web-scale systems" data-search="2009 mongodb and redis software / nosql and in-memory systems web-scale systems 10gen/mongodb; salvatore sanfilippo/redis web applications needed flexible document-shaped data and ultra-low-latency caches/data structures. mongodb emphasized document storage and flexible schema; redis provided an in-memory data-structure server. popularized document databases and in-memory data systems for application infrastructure.">
@@ -752,6 +789,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> MongoDB emphasized document storage and flexible schema; Redis provided an in-memory data-structure server.</div>
             <div class="impact"><strong>Why it mattered:</strong> Popularized document databases and in-memory data systems for application infrastructure.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.wired.com/2012/08/mongodb" target="_blank" rel="noopener noreferrer">Wired: MongoDB background</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="MongoDB’s document model is a primary example of non-relational data modeling discussed here.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="Their storage engines (WiredTiger B-tree, Redis in-memory) illustrate contrasting retrieval strategies.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         </div></section><section class="era-section" id="2010s" data-era-section="2010s"><div class="era-heading"><span>2010s</span><strong>15 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2010 dremel and bigquery lineage paper / cloud analytics cloud data systems google; sergey melnik and team hadoop-style batch analytics was too slow for interactive ad hoc queries over massive datasets. dremel used columnar layout and multi-level execution trees for interactive analysis of nested data. became a technical foundation for bigquery and interactive cloud analytics.">
@@ -768,6 +806,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Dremel used columnar layout and multi-level execution trees for interactive analysis of nested data.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a technical foundation for BigQuery and interactive cloud analytics.</div>
             <div class="refs"><strong>References:</strong> <a href="https://research.google/pubs/dremel-interactive-analysis-of-web-scale-datasets-2/" target="_blank" rel="noopener noreferrer">Google Research: Dremel</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Dremel’s nested columnar format influenced how modern systems store and scan hierarchical analytical data.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Dremel’s distributed tree-based query execution bridges batch and interactive analytical processing.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Big data processing" data-search="2010 apache spark software / cluster computing big data processing matei zaharia, uc berkeley amplab; later databricks and apache community mapreduce was inefficient for iterative machine learning, interactive exploration, and multi-stage pipelines. spark introduced resilient distributed datasets and memory-oriented cluster computation. became a dominant general-purpose big-data engine for etl, ml, streaming, and sql workloads.">
@@ -784,6 +823,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Spark introduced resilient distributed datasets and memory-oriented cluster computation.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a dominant general-purpose big-data engine for ETL, ML, streaming, and SQL workloads.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/legacy/event/hotcloud10/tech/full_papers/Zaharia.pdf" target="_blank" rel="noopener noreferrer">Spark HotCloud paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Spark’s in-memory dataflow engine superseded MapReduce as the modern standard for batch processing.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Streaming" data-search="2011 apache kafka software / distributed log streaming linkedin; jay kreps, neha narkhede, jun rao companies needed reliable high-volume event ingestion and a way to decouple producers from consumers. kafka provided a durable distributed commit log with topics, partitions, replay, and consumer groups. became core infrastructure for streaming pipelines, event-driven systems, and real-time data platforms.">
@@ -800,6 +840,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Kafka provided a durable distributed commit log with topics, partitions, replay, and consumer groups.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became core infrastructure for streaming pipelines, event-driven systems, and real-time data platforms.</div>
             <div class="refs"><strong>References:</strong> <a href="https://pages.cs.wisc.edu/~akella/CS744/F17/838-CloudPapers/Kafka.pdf" target="_blank" rel="noopener noreferrer">Kafka paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Kafka’s append-only log is the defining example of log-based stream processing infrastructure.">Ch. 12: Stream Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Distributed SQL" data-search="2012 spanner paper / globally distributed database distributed sql google; james c. corbett and team global services needed data replicated across regions while still supporting strong, externally consistent transactions. spanner combined replication, distributed transactions, truetime, and sql-like semantics. reframed the relationship between global scale and transactional consistency.">
@@ -816,6 +857,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Spanner combined replication, distributed transactions, TrueTime, and SQL-like semantics.</div>
             <div class="impact"><strong>Why it mattered:</strong> Reframed the relationship between global scale and transactional consistency.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/system/files/conference/osdi12/osdi12-final-16.pdf" target="_blank" rel="noopener noreferrer">Spanner OSDI paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Spanner uses synchronous replication across globally distributed datacenters for durability.">Ch. 6: Replication</span><span class="ddia-chip" data-why="Spanner provides externally consistent distributed transactions using TrueTime for global ordering.">Ch. 8: Transactions</span><span class="ddia-chip" data-why="Spanner relies on Paxos-based consensus for each shard’s replication group coordination.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Distributed SQL" data-search="2012 calvin deterministic transactions paper / transaction architecture distributed sql yale database research community distributed transactions incurred high coordination cost, especially under contention across partitions. calvin used deterministic transaction ordering to reduce runtime coordination complexity. influenced distributed sql and deterministic transaction-processing architectures.">
@@ -832,6 +874,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Calvin used deterministic transaction ordering to reduce runtime coordination complexity.</div>
             <div class="impact"><strong>Why it mattered:</strong> Influenced distributed SQL and deterministic transaction-processing architectures.</div>
             <div class="refs"><strong>References:</strong> <a href="https://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf" target="_blank" rel="noopener noreferrer">Calvin SIGMOD paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Calvin’s deterministic transaction ordering eliminates coordination overhead during execution.">Ch. 8: Transactions</span><span class="ddia-chip" data-why="Calvin uses consensus to agree on a global transaction order before execution begins.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2012–2013 amazon redshift and managed cloud data warehousing company / cloud warehouse cloud data systems amazon web services on-prem mpp warehouses were expensive and slow to procure, scale, and operate. redshift offered managed cloud data warehousing with scalable analytical capacity. helped make cloud-managed analytics the default for many organizations.">
@@ -848,6 +891,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Redshift offered managed cloud data warehousing with scalable analytical capacity.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped make cloud-managed analytics the default for many organizations.</div>
             <div class="refs"><strong>References:</strong> <a href="https://aws.amazon.com/redshift/" target="_blank" rel="noopener noreferrer">AWS Redshift</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Redshift’s columnar storage with zone maps and compression exemplifies analytical storage design.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Redshift distributes data across compute nodes using hash or key-range partitioning strategies.">Ch. 7: Sharding</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Query processing" data-search="2012–2013 presto / trino-style distributed sql software / query engine query processing facebook/meta; later presto foundation and trino community enterprise data lived in many systems; moving everything into one warehouse before querying was costly and slow. presto enabled interactive sql over multiple data sources and storage systems. popularized federated/distributed sql engines for heterogeneous data platforms.">
@@ -864,6 +908,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Presto enabled interactive SQL over multiple data sources and storage systems.</div>
             <div class="impact"><strong>Why it mattered:</strong> Popularized federated/distributed SQL engines for heterogeneous data platforms.</div>
             <div class="refs"><strong>References:</strong> <a href="https://research.facebook.com/publications/presto-a-decade-of-sql-analytics-at-meta/" target="_blank" rel="noopener noreferrer">Meta Research: Presto decade paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Presto queries partitioned data federated across heterogeneous storage backends.">Ch. 7: Sharding</span><span class="ddia-chip" data-why="Presto extends batch processing concepts to interactive, low-latency distributed SQL queries.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Storage engine" data-search="2012–2013 rocksdb software / storage engine storage engine facebook / meta distributed applications needed an embeddable high-performance key-value engine optimized for ssds and large write-heavy workloads. rocksdb industrialized lsm-tree storage with production tuning, compaction control, and ssd-oriented performance. became a storage-engine substrate for many databases, stream processors, and distributed systems.">
@@ -880,6 +925,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> RocksDB industrialized LSM-tree storage with production tuning, compaction control, and SSD-oriented performance.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became a storage-engine substrate for many databases, stream processors, and distributed systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/system/files/fast21-dong.pdf" target="_blank" rel="noopener noreferrer">RocksDB FAST paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="RocksDB is the modern LSM-tree engine that embodies the write-optimized storage trade-offs discussed here.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Distributed systems" data-search="2014 raft consensus algorithm paper / consensus algorithm distributed systems diego ongaro, john ousterhout, stanford paxos-style consensus was powerful but difficult for engineers to understand and implement correctly. raft decomposed consensus into leader election, log replication, and safety properties with an understandability-first design. became widely adopted in practical distributed databases and coordination systems.">
@@ -896,6 +942,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Raft decomposed consensus into leader election, log replication, and safety properties with an understandability-first design.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became widely adopted in practical distributed databases and coordination systems.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro" target="_blank" rel="noopener noreferrer">USENIX ATC 2014 Raft</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Raft is the consensus algorithm designed to be more understandable than Paxos, analyzed alongside it.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Data engineering" data-search="2014–2015 airflow and data orchestration as code software / workflow orchestration data engineering airbnb; maxime beauchemin; apache community data teams needed to author, schedule, monitor, retry, and repair complex pipelines across many systems. airflow represented workflows as python-defined dags with scheduling and operational visibility. popularized orchestration-as-code for modern data engineering.">
@@ -912,6 +959,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Airflow represented workflows as Python-defined DAGs with scheduling and operational visibility.</div>
             <div class="impact"><strong>Why it mattered:</strong> Popularized orchestration-as-code for modern data engineering.</div>
             <div class="refs"><strong>References:</strong> <a href="https://nerds.airbnb.com/airflow/" target="_blank" rel="noopener noreferrer">Airbnb Engineering: Airflow</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Airflow manages the DAG-structured batch processing workflows described in this chapter.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Streaming" data-search="2014–2016 flink, druid, pinot, and clickhouse software / streaming and real-time olap streaming apache flink community; metamarkets/druid; linkedin/pinot; yandex/clickhouse overnight batch systems could not support live dashboards, event-time stream computation, or user-facing analytical latency. flink addressed stateful stream processing; druid, pinot, and clickhouse attacked low-latency analytical queries over fresh event data. made real-time analytics and streaming data platforms mainstream.">
@@ -928,6 +976,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Flink addressed stateful stream processing; Druid, Pinot, and ClickHouse attacked low-latency analytical queries over fresh event data.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made real-time analytics and streaming data platforms mainstream.</div>
             <div class="refs"><strong>References:</strong> <a href="https://flink.apache.org/" target="_blank" rel="noopener noreferrer">Apache Flink</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Druid, Pinot, and ClickHouse use column-oriented storage optimized for real-time analytical queries.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Flink is a primary example of stream processing with event-time semantics and exactly-once guarantees.">Ch. 12: Stream Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2014–2016 snowflake cloud data warehouse company / cloud warehouse cloud data systems snowflake; benoit dageville, thierry cruanes, marcin żukowski and team traditional warehouses coupled storage, compute, scaling, and workload management too tightly. snowflake separated storage and compute with elastic scaling and multi-cluster workload isolation. defined a cloud-native warehouse architecture that reshaped enterprise analytics purchasing and design.">
@@ -944,6 +993,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Snowflake separated storage and compute with elastic scaling and multi-cluster workload isolation.</div>
             <div class="impact"><strong>Why it mattered:</strong> Defined a cloud-native warehouse architecture that reshaped enterprise analytics purchasing and design.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.cs.cmu.edu/~15721-f24/papers/Snowflake.pdf" target="_blank" rel="noopener noreferrer">Snowflake paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Snowflake’s separation of storage and compute is a defining cloud-native architecture trade-off.">Ch. 1: Data Systems Trade-offs</span><span class="ddia-chip" data-why="Snowflake uses micro-partitioned columnar storage with automatic clustering for analytical workloads.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Data formats" data-search="2013–2016 parquet and arrow file format / memory format data formats apache community; contributors across hadoop, spark, pandas, and r ecosystems analytical systems needed efficient columnar files and fast cross-language in-memory data interchange. parquet provided columnar on-disk storage; arrow defined a language-independent columnar memory format. became fundamental infrastructure for modern analytical lakes, engines, and dataframe interoperability.">
@@ -960,6 +1010,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Parquet provided columnar on-disk storage; Arrow defined a language-independent columnar memory format.</div>
             <div class="impact"><strong>Why it mattered:</strong> Became fundamental infrastructure for modern analytical lakes, engines, and dataframe interoperability.</div>
             <div class="refs"><strong>References:</strong> <a href="https://parquet.apache.org/" target="_blank" rel="noopener noreferrer">Apache Parquet</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Parquet’s columnar encoding is a primary example of efficient analytical storage formats.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="Parquet and Arrow define schema evolution rules and cross-language data encoding standards.">Ch. 5: Encoding & Evolution</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="Cloud data systems" data-search="2016–2018 kubernetes statefulsets and operators platform / operations pattern cloud data systems kubernetes community, coreos/red hat, cncf ecosystem container platforms were initially better for stateless apps than databases requiring stable identity and persistent storage. statefulsets and operators added primitives and automation patterns for stateful services. made cloud-native operation of databases more feasible, though still operationally complex.">
@@ -976,6 +1027,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> StatefulSets and Operators added primitives and automation patterns for stateful services.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made cloud-native operation of databases more feasible, though still operationally complex.</div>
             <div class="refs"><strong>References:</strong> <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/" target="_blank" rel="noopener noreferrer">Kubernetes StatefulSet docs</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="StatefulSets manage the partial failures, network partitions, and ordering guarantees that challenge distributed stateful systems.">Ch. 9: Distributed Systems</span></div>
         </article>
         
         <article class="milestone" data-era="2010s" data-category="AI / Vector retrieval" data-search="2017 faiss software / vector search ai / vector retrieval facebook ai research / meta ai machine-learning applications needed fast similarity search over billions of high-dimensional embeddings. faiss provided efficient approximate nearest-neighbor indexing and search for vectors. helped make embedding retrieval practical before the llm/rag boom.">
@@ -992,6 +1044,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> FAISS provided efficient approximate nearest-neighbor indexing and search for vectors.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped make embedding retrieval practical before the LLM/RAG boom.</div>
             <div class="refs"><strong>References:</strong> <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener noreferrer">FAISS GitHub</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="FAISS implements approximate nearest neighbor indexes, extending retrieval techniques to high-dimensional vector data.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         </div></section><section class="era-section" id="2020-2026" data-era-section="2020–2026"><div class="era-heading"><span>2020–2026</span><strong>12 milestones</strong></div><div class="timeline">
         <article class="milestone" data-era="2020–2026" data-category="Lakehouse" data-search="2016–2020, mainstream in 2020s apache hudi, apache iceberg, delta lake, and lakehouse architecture software / table formats lakehouse uber/hudi lineage, netflix/iceberg lineage, databricks/delta lake, apache community data lakes were often just files on object storage: weak transactions, poor schema evolution, hard concurrency, and fragile metadata. lakehouse table formats added acid-like semantics, schema evolution, time travel, indexing/metadata, and table abstraction over object storage. merged warehouse-like reliability with lake-like open storage economics.">
@@ -1008,6 +1061,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Lakehouse table formats added ACID-like semantics, schema evolution, time travel, indexing/metadata, and table abstraction over object storage.</div>
             <div class="impact"><strong>Why it mattered:</strong> Merged warehouse-like reliability with lake-like open storage economics.</div>
             <div class="refs"><strong>References:</strong> <a href="https://vldb.org/pvldb/vol13/p3411-armbrust.pdf" target="_blank" rel="noopener noreferrer">Delta Lake VLDB paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Table formats add ACID semantics and schema evolution to file-based analytical storage layers.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="These formats enable CDC and incremental ingestion patterns rooted in stream processing architectures.">Ch. 12: Stream Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="Query processing" data-search="2019–2020s duckdb software / embedded analytical dbms query processing mark raasveldt, hannes mühleisen, cwi developers had sqlite for embedded oltp-style use, but no comparably simple in-process database optimized for analytics. duckdb offered embedded, vectorized analytical sql over local data, files, and data frames. made local analytical processing and notebook/dataframe sql much easier.">
@@ -1024,6 +1078,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> DuckDB offered embedded, vectorized analytical SQL over local data, files, and data frames.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made local analytical processing and notebook/dataframe SQL much easier.</div>
             <div class="refs"><strong>References:</strong> <a href="https://duckdb.org/pdf/SIGMOD2019-demo-duckdb.pdf" target="_blank" rel="noopener noreferrer">DuckDB SIGMOD demo paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="DuckDB’s vectorized columnar engine applies analytical storage techniques to embedded, in-process databases.">Ch. 4: Storage & Retrieval</span><span class="ddia-chip" data-why="DuckDB brings batch-style analytical query processing to single-node, in-process execution.">Ch. 11: Batch Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="Data engineering" data-search="2019–2020s data observability practice / software category data engineering monte carlo and broader modern data stack vendors complex data pipelines produced silent failures: stale tables, schema breaks, anomalous values, and broken dashboards. data observability added monitoring for freshness, volume, schema, lineage, quality, and incident response. moved data operations closer to sre-style reliability practices.">
@@ -1040,6 +1095,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Data observability added monitoring for freshness, volume, schema, lineage, quality, and incident response.</div>
             <div class="impact"><strong>Why it mattered:</strong> Moved data operations closer to SRE-style reliability practices.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.montecarlodata.com/blog-what-is-data-observability/" target="_blank" rel="noopener noreferrer">Monte Carlo: data observability</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Observability tools operationalize the reliability and maintainability requirements defined in this chapter.">Ch. 2: Nonfunctional Requirements</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2020 retrieval-augmented generation (rag) paper / ai-data architecture ai / vector retrieval patrick lewis, ethan perez, aleksandra piktus, fabio petroni, vladimir karpukhin, naman goyal, heinrich küttler, mike lewis, wen-tau yih, tim rocktäschel, sebastian riedel, douwe kiela llms’ parametric memory is hard to update, inspect, cite, and ground in external documents. rag combined generative models with non-parametric retrieval, typically over dense vector indexes. connected data systems directly to ai answer generation, enterprise search, and agent memory.">
@@ -1056,6 +1112,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> RAG combined generative models with non-parametric retrieval, typically over dense vector indexes.</div>
             <div class="impact"><strong>Why it mattered:</strong> Connected data systems directly to AI answer generation, enterprise search, and agent memory.</div>
             <div class="refs"><strong>References:</strong> <a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener noreferrer">RAG paper</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="RAG combines vector similarity search with full-text retrieval—both indexing techniques discussed in this chapter.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2019–2021 milvus and purpose-built vector databases software / vector database ai / vector retrieval zilliz / milvus; lf ai &amp; data ecosystem embedding search required operational systems for massive high-dimensional vector indexing, querying, and serving. milvus provided a purpose-built vector database for large-scale similarity search. helped define the vector database category for ai applications.">
@@ -1072,6 +1129,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Milvus provided a purpose-built vector database for large-scale similarity search.</div>
             <div class="impact"><strong>Why it mattered:</strong> Helped define the vector database category for AI applications.</div>
             <div class="refs"><strong>References:</strong> <a href="https://zilliz.com/news/New-Zilliz-Research-on-Vector-Data-Management-Accepted-by-SIGMOD" target="_blank" rel="noopener noreferrer">Zilliz / Milvus research announcement</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Milvus implements specialized vector indexes (IVF, HNSW) as a new category of storage and retrieval.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2021 pinecone managed vector database company / managed vector db ai / vector retrieval pinecone teams building semantic search and ml retrieval did not want to operate their own vector infrastructure. pinecone offered managed vector indexing, similarity search, and scaling. popularized vector database infrastructure as an external managed service.">
@@ -1088,6 +1146,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Pinecone offered managed vector indexing, similarity search, and scaling.</div>
             <div class="impact"><strong>Why it mattered:</strong> Popularized vector database infrastructure as an external managed service.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.pinecone.io/blog/announcing-vector-database/" target="_blank" rel="noopener noreferrer">Pinecone announcement</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Pinecone offers managed vector indexing as a cloud-native retrieval service for embedding search.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="Distributed SQL" data-search="2021 onward foundationdb as a layered distributed transaction substrate software / distributed db substrate distributed sql apple/foundationdb community; database research community many distributed databases need serializable transactions, but building reliable transaction infrastructure repeatedly is hard. foundationdb separated a transactional core from higher-level layers and storage abstractions. showed a layered path for building multiple data models over a strong distributed transaction substrate.">
@@ -1104,6 +1163,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> FoundationDB separated a transactional core from higher-level layers and storage abstractions.</div>
             <div class="impact"><strong>Why it mattered:</strong> Showed a layered path for building multiple data models over a strong distributed transaction substrate.</div>
             <div class="refs"><strong>References:</strong> <a href="https://www.foundationdb.org/files/fdb-paper.pdf" target="_blank" rel="noopener noreferrer">FoundationDB paper PDF</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="FoundationDB provides serializable ACID transactions as a composable, layered substrate for higher-level systems.">Ch. 8: Transactions</span><span class="ddia-chip" data-why="FoundationDB uses Paxos-based consensus for fault-tolerant distributed coordination.">Ch. 10: Consistency & Consensus</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2021–2026 pgvector and vector search inside postgresql software / extension ai / vector retrieval pgvector open-source project; postgresql ecosystem many applications wanted vector search without separating embeddings from transactional relational data. pgvector added vector storage and similarity search to postgresql. made postgres a practical default for many rag and semantic-search applications.">
@@ -1120,6 +1180,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> pgvector added vector storage and similarity search to PostgreSQL.</div>
             <div class="impact"><strong>Why it mattered:</strong> Made Postgres a practical default for many RAG and semantic-search applications.</div>
             <div class="refs"><strong>References:</strong> <a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener noreferrer">pgvector GitHub</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="pgvector extends the relational model with native vector data types and similarity operators.">Ch. 3: Data Models</span><span class="ddia-chip" data-why="pgvector adds approximate nearest neighbor indexes (IVFFlat, HNSW) alongside traditional B-tree indexes.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2023–2026 vector search becomes a mainstream data-system feature platform convergence ai / vector retrieval postgresql/pgvector, redis, cloud providers, vector db vendors semantic search, recommender systems, and rag needed vector retrieval close to operational and analytical data. general-purpose data platforms began adding vector indexing/search alongside existing storage, cache, and query features. reduced the boundary between vector databases and broader data platforms.">
@@ -1136,6 +1197,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> General-purpose data platforms began adding vector indexing/search alongside existing storage, cache, and query features.</div>
             <div class="impact"><strong>Why it mattered:</strong> Reduced the boundary between vector databases and broader data platforms.</div>
             <div class="refs"><strong>References:</strong> <a href="https://redis.io/docs/latest/get-started/" target="_blank" rel="noopener noreferrer">Redis docs</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Embedding vector search into existing databases extends the indexing and retrieval landscape covered here.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="Streaming" data-search="2025 apache flink 2.0 disaggregated state management software / stream processing streaming apache flink community, alibaba and academic collaborators stateful stream processors struggled with local-state scaling, snapshots, rescaling, and resource spikes. flink 2.0 decoupled compute from state storage using remote storage plus local caching. improved scalability and operational flexibility for stateful real-time processing.">
@@ -1152,6 +1214,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Flink 2.0 decoupled compute from state storage using remote storage plus local caching.</div>
             <div class="impact"><strong>Why it mattered:</strong> Improved scalability and operational flexibility for stateful real-time processing.</div>
             <div class="refs"><strong>References:</strong> <a href="https://flink.apache.org/2025/03/24/apache-flink-2.0.0-a-new-era-of-real-time-data-processing/" target="_blank" rel="noopener noreferrer">Apache Flink 2.0 announcement</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Flink 2.0’s disaggregated state management advances the stream processing architecture discussed in this chapter.">Ch. 12: Stream Processing</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2025 amazon s3 vectors cloud storage feature ai / vector retrieval amazon web services large vector datasets for ai applications could be expensive and operationally complex when stored outside core storage systems. s3 vectors added native vector storage and query support to object storage. signaled deeper integration of ai retrieval primitives into commodity cloud storage.">
@@ -1168,6 +1231,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> S3 Vectors added native vector storage and query support to object storage.</div>
             <div class="impact"><strong>Why it mattered:</strong> Signaled deeper integration of AI retrieval primitives into commodity cloud storage.</div>
             <div class="refs"><strong>References:</strong> <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-s3-vectors-first-cloud-storage-with-native-vector-support-at-scale/" target="_blank" rel="noopener noreferrer">AWS S3 Vectors announcement</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Native vector storage in object stores extends retrieval infrastructure to embedding-based similarity search.">Ch. 4: Storage & Retrieval</span></div>
         </article>
         
         <article class="milestone" data-era="2020–2026" data-category="AI / Vector retrieval" data-search="2025–2026 agent-facing real-time analytics and semantic retrieval architecture trend ai / vector retrieval apache pinot, redis, pgvector, s3 vectors, lakehouse vendors applications and agents increasingly need fresh, contextual, queryable information instead of static dashboards alone. real-time analytical engines, vector retrieval systems, caches, and lakehouse metadata are converging around agent and application-serving use cases. the frontier shifts from storing data to making operational, analytical, streaming, and semantic data usable by humans and ai agents.">
@@ -1184,6 +1248,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
             <div class="solution"><strong>How it solved it:</strong> Real-time analytical engines, vector retrieval systems, caches, and lakehouse metadata are converging around agent and application-serving use cases.</div>
             <div class="impact"><strong>Why it mattered:</strong> The frontier shifts from storing data to making operational, analytical, streaming, and semantic data usable by humans and AI agents.</div>
             <div class="refs"><strong>References:</strong> <a href="https://pinot.apache.org/" target="_blank" rel="noopener noreferrer">Apache Pinot</a></div>
+            <div class="ddia"><strong>DDIA:</strong> <span class="ddia-chip" data-why="Agent-driven queries require the low-latency, continuous processing patterns of stream processing.">Ch. 12: Stream Processing</span><span class="ddia-chip" data-why="AI agents consuming data pipelines embody the dataflow-as-architecture philosophy described here.">Ch. 13: Streaming Philosophy</span></div>
         </article>
         </div></section>
     </section>
@@ -1259,6 +1324,24 @@ reset.addEventListener('click', () => {
     applyFilters();
 });
 applyFilters();
+
+document.addEventListener('click', e => {
+    const chip = e.target.closest('.ddia-chip');
+    if (!chip) return;
+    const ddia = chip.closest('.ddia');
+    const card = ddia.closest('.milestone');
+    const existing = card.querySelector('.ddia-why');
+    const wasActive = chip.classList.contains('active');
+    ddia.querySelectorAll('.ddia-chip').forEach(c => c.classList.remove('active'));
+    if (existing) existing.remove();
+    if (!wasActive) {
+        chip.classList.add('active');
+        const panel = document.createElement('div');
+        panel.className = 'ddia-why';
+        panel.textContent = chip.dataset.why;
+        ddia.after(panel);
+    }
+});
 </script>
 </body>
 </html>
