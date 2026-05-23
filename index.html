@@ -139,11 +139,30 @@ h3 { margin: 2px 0 0; font-size: clamp(1.15rem, 2vw, 1.55rem); line-height: 1.15
 .footer { padding: 36px 0 70px; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); }
 .footer strong { color: var(--ink); }
 mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; border-radius: .2em; }
+.filter-toggle {
+    display: none; width: 100%; border: 1px solid rgba(143,211,255,.3); background: rgba(143,211,255,.1);
+    color: var(--ink); padding: 12px 14px; border-radius: 14px; cursor: pointer;
+    font: inherit; font-size: .95rem; font-weight: 600;
+    align-items: center; justify-content: space-between;
+}
+.filter-toggle .toggle-icon {
+    transition: transform .25s ease; display: inline-block; font-size: .8rem;
+}
+.filter-toggle.open .toggle-icon { transform: rotate(180deg); }
+.filter-body {
+    transition: grid-template-rows .3s ease;
+    display: grid; grid-template-rows: 1fr;
+}
+.filter-body > div { overflow: hidden; }
+.filter-body.collapsed { grid-template-rows: 0fr; }
 @media (max-width: 980px) {
     .stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
     .controls { grid-template-columns: 1fr; }
     .layout { grid-template-columns: 1fr; }
     aside { position: static; }
+    .filter-toggle { display: flex; }
+    .filter-body { grid-template-rows: 0fr; }
+    .filter-body.open { grid-template-rows: 1fr; }
 }
 @media (max-width: 640px) {
     .stats { grid-template-columns: 1fr; }
@@ -180,17 +199,25 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
 
 <div class="controls-wrap">
     <div class="wrapper">
-        <div class="controls">
-            <input id="search" class="search" type="search" placeholder="Search: Codd, SQL, Hadoop, vector, transactions, cloud..." aria-label="Search timeline" />
-            <select id="category" class="select" aria-label="Filter by category">
-                <option value="all">All categories</option>
-                <option value="AI / Vector retrieval">AI / Vector retrieval</option><option value="Big data processing">Big data processing</option><option value="Cloud data systems">Cloud data systems</option><option value="Commercialization">Commercialization</option><option value="Data engineering">Data engineering</option><option value="Data formats">Data formats</option><option value="Data model">Data model</option><option value="Data warehouse / OLAP">Data warehouse / OLAP</option><option value="Distributed SQL">Distributed SQL</option><option value="Distributed storage">Distributed storage</option><option value="Distributed systems">Distributed systems</option><option value="Extensible DBMS">Extensible DBMS</option><option value="Lakehouse">Lakehouse</option><option value="Operational DBMS">Operational DBMS</option><option value="Parallel DBMS">Parallel DBMS</option><option value="Query processing">Query processing</option><option value="Storage engine">Storage engine</option><option value="Streaming">Streaming</option><option value="Transactions">Transactions</option><option value="Web-scale systems">Web-scale systems</option>
-            </select>
-            <button id="reset" class="btn">Reset filters</button>
-        </div>
-        <div class="chips">
-            <button class="chip active" data-era-filter="all">All eras</button>
-            <button class="chip" data-era-filter="1960s–1970s">1960s–1970s</button><button class="chip" data-era-filter="1980s–1990s">1980s–1990s</button><button class="chip" data-era-filter="2000s">2000s</button><button class="chip" data-era-filter="2010s">2010s</button><button class="chip" data-era-filter="2020–2026">2020–2026</button>
+        <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterBody">
+            <span>Filters</span>
+            <span class="toggle-icon">▼</span>
+        </button>
+        <div class="filter-body" id="filterBody">
+            <div>
+                <div class="controls">
+                    <input id="search" class="search" type="search" placeholder="Search: Codd, SQL, Hadoop, vector, transactions, cloud..." aria-label="Search timeline" />
+                    <select id="category" class="select" aria-label="Filter by category">
+                        <option value="all">All categories</option>
+                        <option value="AI / Vector retrieval">AI / Vector retrieval</option><option value="Big data processing">Big data processing</option><option value="Cloud data systems">Cloud data systems</option><option value="Commercialization">Commercialization</option><option value="Data engineering">Data engineering</option><option value="Data formats">Data formats</option><option value="Data model">Data model</option><option value="Data warehouse / OLAP">Data warehouse / OLAP</option><option value="Distributed SQL">Distributed SQL</option><option value="Distributed storage">Distributed storage</option><option value="Distributed systems">Distributed systems</option><option value="Extensible DBMS">Extensible DBMS</option><option value="Lakehouse">Lakehouse</option><option value="Operational DBMS">Operational DBMS</option><option value="Parallel DBMS">Parallel DBMS</option><option value="Query processing">Query processing</option><option value="Storage engine">Storage engine</option><option value="Streaming">Streaming</option><option value="Transactions">Transactions</option><option value="Web-scale systems">Web-scale systems</option>
+                    </select>
+                    <button id="reset" class="btn">Reset filters</button>
+                </div>
+                <div class="chips">
+                    <button class="chip active" data-era-filter="all">All eras</button>
+                    <button class="chip" data-era-filter="1960s–1970s">1960s–1970s</button><button class="chip" data-era-filter="1980s–1990s">1980s–1990s</button><button class="chip" data-era-filter="2000s">2000s</button><button class="chip" data-era-filter="2010s">2010s</button><button class="chip" data-era-filter="2020–2026">2020–2026</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -1170,6 +1197,13 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
 </footer>
 
 <script>
+const filterToggle = document.getElementById('filterToggle');
+const filterBody = document.getElementById('filterBody');
+filterToggle.addEventListener('click', () => {
+    const open = filterBody.classList.toggle('open');
+    filterToggle.classList.toggle('open', open);
+    filterToggle.setAttribute('aria-expanded', open);
+});
 const search = document.getElementById('search');
 const category = document.getElementById('category');
 const reset = document.getElementById('reset');
