@@ -310,7 +310,7 @@ mark { background: rgba(255,226,154,.25); color: var(--ink); padding: 0 .15em; b
                 <div class="side-panel">
                     <h2 style="margin-top:20px;">How to read the timeline</h2>
                     <p>Each card names the breakthrough, the people or organizations behind it, the problem it solved, and why that solution changed the data-system landscape.</p>
-                    <p>Each card cross-references chapters from Martin Kleppmann's <a href="notes/index.html"><em>Designing Data-Intensive Applications</em></a> (2nd ed., 2025). Click the green chapter chips on any card to see why that milestone connects to the chapter's concepts.</p>
+                    <p>Each card cross-references chapters from Martin Kleppmann's <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781098119058/" target="_blank" rel="noopener noreferrer"><em>Designing Data-Intensive Applications</em></a> (2nd ed., 2025). Click the green chapter chips on any card to see why that milestone connects to the chapter's concepts.</p>
                     <div class="phase-map">
                         <div class="phase"><b>1960s–1970s</b><span>Centralized operational data, DBMSs, relational model</span></div>
                         <div class="phase"><b>1980s–1990s</b><span>SQL standardization, transactions, recovery, warehouses</span></div>
@@ -1561,22 +1561,6 @@ reset.addEventListener('click', () => {
 loadFromURL();
 applyFilters();
 
-const chapterURLs = {
-    1: 'notes/ddia2-chapter-1-trade-offs-in-data-systems-architecture.html',
-    2: 'notes/ddia2-chapter-2-defining-nonfunctional-requirements.html',
-    3: 'notes/ddia2-chapter-3-data-models-and-query-languages.html',
-    4: 'notes/ddia2-chapter-4-storage-and-retrieval.html',
-    5: 'notes/ddia2-chapter-5-encoding-and-evolution.html',
-    6: 'notes/ddia2-chapter-6-replication.html',
-    7: 'notes/ddia2-chapter-7-sharding.html',
-    8: 'notes/ddia2-chapter-8-transactions.html',
-    9: 'notes/ddia2-chapter-9-the-trouble-with-distributed-systems.html',
-    10: 'notes/ddia2-chapter-10-consistency-and-consensus.html',
-    11: 'notes/ddia2-chapter-11-batch-processing.html',
-    12: 'notes/ddia2-chapter-12-stream-processing.html',
-    13: 'notes/ddia2-chapter-13-a-philosophy-of-streaming-systems.html',
-    14: 'notes/ddia2-chapter-14-doing-the-right-thing.html'
-};
 document.addEventListener('click', e => {
     const chip = e.target.closest('.ddia-chip');
     if (!chip) return;
@@ -1590,17 +1574,7 @@ document.addEventListener('click', e => {
         chip.classList.add('active');
         const panel = document.createElement('div');
         panel.className = 'ddia-why';
-        const chNum = chip.textContent.match(/Ch\.\s*(\d+)/);
-        const url = chNum && chapterURLs[parseInt(chNum[1])];
         panel.textContent = chip.dataset.why;
-        if (url) {
-            const link = document.createElement('a');
-            link.href = url;
-            link.textContent = 'Read chapter notes →';
-            link.style.cssText = 'display:inline-block;margin-top:8px;color:var(--accent-2);border:1px solid rgba(198,246,213,.3);border-radius:999px;padding:5px 12px;font-size:.85rem;background:rgba(198,246,213,.08);';
-            panel.appendChild(document.createElement('br'));
-            panel.appendChild(link);
-        }
         ddia.after(panel);
     }
 });
