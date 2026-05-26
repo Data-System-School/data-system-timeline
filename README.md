@@ -11,7 +11,7 @@ A visual chronology of major data-system breakthroughs from the 1960s through 20
 
 ## View
 
-Live at **https://edurevamp.github.io/data-system-timeline/**
+Live at **https://data-system-school.github.io/data-system-timeline**
 
 ## License
 
