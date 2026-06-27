@@ -4,7 +4,7 @@ A visual chronology of major data-system breakthroughs from the 1960s through 20
 
 ## Features
 
-- 59 milestones across 5 historical eras and 20 technical categories
+- 83 milestones across 5 historical eras and 25 technical categories
 - Full-text search and category/era filtering
 - Responsive design with collapsible filters on mobile
 - Single-file HTML — no build step, no dependencies
